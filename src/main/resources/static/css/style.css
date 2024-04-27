@@ -1,5 +1,11 @@
 #mainTitle {
-    font: small-caps bolder 7em "Rockwell Extra Bold", "Roboto", sans-serif  ;
+    font: small-caps bolder 5em "Rockwell Extra Bold", "Roboto", sans-serif  ;
     margin: auto;
     text-align: center;
+    color: #4db84d;
+}
+
+.container30 {
+    width: 30%;
+    margin: 2em auto;
 }

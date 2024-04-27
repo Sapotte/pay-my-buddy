@@ -1,24 +1,22 @@
 package com.openclassromm.paymybuddy.controllers.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Objects;
+@Getter
 public class PostUser {
     public String userName;
     public String email;
+    @Setter
     public String password;
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
@@ -27,5 +25,27 @@ public class PostUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "PostUser{" +
+                "userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PostUser postUser = (PostUser) o;
+        return Objects.equals(userName, postUser.userName) && Objects.equals(email, postUser.email) && Objects.equals(password, postUser.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, email, password);
     }
 }

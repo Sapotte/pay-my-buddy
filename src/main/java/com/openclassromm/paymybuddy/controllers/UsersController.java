@@ -5,12 +5,12 @@ import com.openclassromm.paymybuddy.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @RequestMapping("/users")
 public class UsersController {
     @Autowired
@@ -21,10 +21,10 @@ public class UsersController {
      * @return responseEntity
      */
     @PostMapping
-    public ResponseEntity<String> addPerson(@RequestBody PostUser user) {
+    public ResponseEntity<String> addPerson(@ModelAttribute("postUser") PostUser user) {
         var newUser = usersService.createUserAccount(user);
         if(newUser) {
-            return new ResponseEntity<String>("redirect:/login", HttpStatusCode.valueOf(201));
+            return new ResponseEntity<>(HttpStatusCode.valueOf(201));
         } else {
             return new ResponseEntity<>(HttpStatusCode.valueOf(409));
         }

@@ -4,6 +4,8 @@ import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.services.mappers.UserServiceMapperImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,14 +15,19 @@ public class UsersService {
     @Autowired
     private UserRepository userRepository;
 
+    private final Logger LOGGER = LogManager.getLogger(UsersService.class);
+
     UserServiceMapperImpl userServiceMapper = new UserServiceMapperImpl();
 
     public Boolean createUserAccount(PostUser postUser) {
+        LOGGER.info("Check if account already exists");
         if(checkIfEmailExists(postUser.getEmail())) {
+            LOGGER.info("Account already exists");
             return false;
         } else {
+            LOGGER.info("Creating user account");
             // Encode password
-            postUser.setPassword(new BCryptPasswordEncoder().encode(postUser.getPassword()));
+            postUser.setPassword("{bcrypt}" + new BCryptPasswordEncoder().encode(postUser.getPassword()));
             User user =  userServiceMapper.mapPostUserToUser(postUser, (float) 0);
             userRepository.save(user);
             return true;
@@ -34,4 +41,5 @@ public class UsersService {
     private boolean checkIfEmailExists(String email) {
         return userRepository.findByEmail(email).isPresent();
     }
+
 }

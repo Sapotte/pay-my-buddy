@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="TRACE">
+<Configuration status="WARN">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
@@ -9,12 +9,13 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.openclassromm.paymybuddy" level="trace" additivity="false">
+        <Logger name="com.openclassromm.paymybuddy" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="AppFile"/>
         </Logger>
-        <Root level="trace">
+        <Root level="debug">
             <AppenderRef ref="Console"/>
+            <AppenderRef ref="AppFile"/>
         </Root>
     </Loggers>
 </Configuration>
