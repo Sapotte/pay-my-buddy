@@ -44,8 +44,7 @@ public class FriendshipController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         var user = (UserDetails) authentication.getPrincipal();
         try {
-            var friendsList = friendshipService.getFriends(Integer.valueOf(user.getUsername()));
-            return friendsList;
+            return friendshipService.getFriends(Integer.valueOf(user.getUsername()));
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             return null;
