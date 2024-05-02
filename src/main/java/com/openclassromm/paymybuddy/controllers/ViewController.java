@@ -3,6 +3,7 @@ package com.openclassromm.paymybuddy.controllers;
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
+import com.openclassromm.paymybuddy.services.FriendshipService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class ViewController {
     private final Logger LOGGER = LogManager.getLogger(ViewController.class);
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    FriendshipService friendshipService;
 
     @RequestMapping(value = "/login")
     public String login() {
@@ -51,5 +54,10 @@ public class ViewController {
     public String addFriend() {
         LOGGER.info("addFriend");
         return "addFriend";
+    }
+
+    @RequestMapping(path = "/externTransaction")
+    public String externTransaction() {
+        return "externTransaction";
     }
 }
