@@ -1,28 +1,39 @@
 package com.openclassromm.paymybuddy.db.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(name = "user_AK", columnNames = {"email"})
+})
 public class User {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "password", nullable = false, length = 300)
+    @Size(max = 20)
+    @NotNull
+    @Column(name = "password", nullable = false, length = 20)
     private String password;
 
+    @Size(max = 100)
+    @NotNull
     @Column(name = "user_name", nullable = false, length = 100)
     private String userName;
 
+    @NotNull
     @Column(name = "account_balance", nullable = false)
     private Float accountBalance;
 
+    @Size(max = 150)
+    @NotNull
     @Column(name = "email", nullable = false, length = 150)
     private String email;
 

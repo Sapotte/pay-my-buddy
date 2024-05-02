@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragments :: common-head(~{::title})}">
+    <title th:text="${title}">Add friend</title></head>
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+<div class=" container container30">
+    <h2 class="text-center color-success">Inscrivez-vous</h2>
+    <form action="#" method="POST" th:action="@{/friendships}" th:object="${userEmail}">
+        <div class="mb-4">
+            <label class="form-label" for="userEmail">Votre pseudo</label>
+            <input class="form-control" id="userEmail" name="userEmail" placeholder="Mail de votre ami" required
+                   type="text"/>
+        </div>
+        <input class="btn btn-primary mb-4 center" type="submit" value="Ajouter un ami"/>
+        <span class="error" th:if="${param.error}">
+            Une erreur est survenue, veuillez réessayer</span>
+    </form>
+</div>
+</body>
+</html>

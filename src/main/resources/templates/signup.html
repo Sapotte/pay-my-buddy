@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="~{fragments :: common-head(~{::title})}">
-    Créer un compte Pay My Buddy
+    <title th:text="${title}">Sign up</title></head>
 </head>
 <body>
 <div th:replace="~{fragments :: header}"></div>
-<div class="container container30">
-    <h2 class="center color-success">Inscrivez-vous</h2>
+<div class="container container30 border border-3 border-success">
+    <h2 class="text-center color-success">Inscrivez-vous</h2>
     <form action="#" th:action="@{/users}" th:object="${postUser}" method="POST">
-        <div>
+        <div class="mb-4">
             <label for="userName" class="form-label">Votre pseudo</label>
-            <input type="text" id="userName" name="userName" placeholder="Pseudo" th:field="*{userName}"/>
+            <input class="form-control" id="userName" name="userName" placeholder="Pseudo" required
+                   th:field="*{userName}"
+                   type="text"/>
         </div>
-        <div>
+        <div class="mb-4">
             <label for="email" class="form-label">Votre email</label>
-            <input type="email" id="email" name="email" placeholder="E-mail" th:field="*{email}"/>
+            <input class="form-control" id="email" name="email" placeholder="E-mail" required th:field="*{email}"
+                   type="email"/>
         </div>
-        <div>
+        <div class="mb-4">
             <label for="password" class="form-label">Votre mot de passe</label>
-            <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}"/>
+            <input class="form-control" id="password" name="password" placeholder="Password" required
+                   th:field="*{password}"
+                   type="password"/>
         </div>
-        <input type="submit" value="S'inscrire" />
+        <input class="btn btn-primary mb-4 center" type="submit" value="S'inscrire"/>
+        <div class="color-primary" th:if="${param.error}">
+            Une erreur est survenue, veuillez réessayer
+        </div>
     </form>
+    <a class="mb-4 center text-center" th:href="@{/login}"> Vous identifier </a>
 </div>
 </body>
 </html>

@@ -5,10 +5,13 @@ import lombok.Setter;
 
 import java.util.Objects;
 @Getter
+@Setter
 public class PostUser {
+
     public String userName;
+
     public String email;
-    @Setter
+
     public String password;
 
     public String getUserName() {
@@ -21,6 +24,14 @@ public class PostUser {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPassword(String password) {

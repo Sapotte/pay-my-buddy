@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="~{fragments :: common-head(~{::title})}">
-    Please Log In
+    <title th:text="${title}">Log in</title></head>
 </head>
 <body>
 <div th:replace="~{fragments :: header}"></div>
-<div class="container container30 center border border-3 border-success p-10">
+<div class="container container30 border border-3 border-success p-20 text-center">
     <h2 class="text-center mb-3">Connectez-vous</h2>
+    <div class="text-success" th:if="${param.alreadyExisted}">
+        Votre compte existe déjà, veuillez vous identifier
+    </div>
+    <div class="text-success" th:if="${param.success}">
+        Votre compte a bien été créé, veuillez vous identifier
+    </div>
     <form th:action="@{/login}" method="post" >
-        <div class="mb-3">
+        <div class="mb-4">
             <label for="email" class="form-label">Votre email</label>
             <input type="text" name="email" placeholder="Username" class="form-control" id="email"/>
         </div>
-        <div class="mb-3">
+        <div class="mb-4 center">
             <label for="password" class="form-label">Votre mot de passe</label>
             <input type="password" name="password" placeholder="Password"  class="form-control" id="password"/>
         </div>
-        <input type="submit" value="Se connecter" class="btn btn-primary center"/>
+        <input class="btn btn-primary mb3 center" type="submit" value="Se connecter"/>
         <div th:if="${param.error}" class="color-primary">
             Invalid username and password.</div>
         <div th:if="${param.logout}" class="color-success">
             You have been logged out.</div>
     </form>
-    <a th:href="@{/signup}" class="mb-3"> Vous inscrire </a>
+    <a class="mb-4 center text-center" th:href="@{/signup}"> Vous inscrire </a>
 </div>
 
 </body>

@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
-    private static final Logger LOGGER = LogManager.getLogger(MyUserDetailsService.class);
+public class CustomUserDetailsService implements UserDetailsService {
+    private static final Logger LOGGER = LogManager.getLogger(CustomUserDetailsService.class);
     @Autowired
     private UserRepository userRepository;
 
@@ -24,7 +24,7 @@ public class MyUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException("User not found");
         } else {
             LOGGER.info("Found user: " + user);
-            return new org.springframework.security.core.userdetails.User(user.get().getEmail(), user.get().getPassword(), new ArrayList<>());
+            return new org.springframework.security.core.userdetails.User(user.get().getId().toString(), user.get().getPassword(), new ArrayList<>());
         }
     }
 }

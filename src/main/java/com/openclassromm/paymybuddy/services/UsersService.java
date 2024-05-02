@@ -18,6 +18,8 @@ public class UsersService {
     private final Logger LOGGER = LogManager.getLogger(UsersService.class);
 
     UserServiceMapperImpl userServiceMapper = new UserServiceMapperImpl();
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     public Boolean createUserAccount(PostUser postUser) {
         LOGGER.info("Check if account already exists");
@@ -27,7 +29,7 @@ public class UsersService {
         } else {
             LOGGER.info("Creating user account");
             // Encode password
-            postUser.setPassword("{bcrypt}" + new BCryptPasswordEncoder().encode(postUser.getPassword()));
+            postUser.setPassword(passwordEncoder.encode(postUser.getPassword()));
             User user =  userServiceMapper.mapPostUserToUser(postUser, (float) 0);
             userRepository.save(user);
             return true;
@@ -39,7 +41,7 @@ public class UsersService {
      * @return true if account is already registered
      */
     private boolean checkIfEmailExists(String email) {
-        return userRepository.findByEmail(email).isPresent();
+        return userRepository.existsByEmail(email);
     }
 
 }
