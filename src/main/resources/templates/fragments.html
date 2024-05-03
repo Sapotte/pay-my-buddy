@@ -15,13 +15,11 @@
 </th:block>
 
 <div th:fragment="header">
-    <header class="flex justify-between">
-        <h1 class="title" id="mainTitle">Pay My Buddy</h1>
-        <div class="right" sec:authorize="isAuthenticated()">
-            <form method="post" th:action="@{/logout}" th:csrf>
-                <input class="btn btn-primary mb-3" type="submit" value="Logout"/>
-            </form>
-        </div>
+    <header class="d-flex flex-row justify-content-between">
+        <h1 class=" w-90 text-center" id="mainTitle">Pay My Buddy</h1>
+        <form method="post" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:csrf>
+            <input class="btn btn-primary mb-3" type="submit" value="Logout"/>
+        </form>
     </header>
 </div>
 

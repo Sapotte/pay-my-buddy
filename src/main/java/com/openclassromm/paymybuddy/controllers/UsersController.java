@@ -7,13 +7,11 @@ import com.openclassromm.paymybuddy.services.UsersService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/users")
@@ -38,8 +36,9 @@ public class UsersController {
         }
     }
 
+    @PreAuthorize("isAuthenticated()")
     @DeleteMapping
-    public String deletePerson() {
+    public String deleteUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
         try {
@@ -52,5 +51,13 @@ public class UsersController {
             }
             return "redirect:/account?errorDeleted";
         }
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @PutMapping
+    public void updateUser(@ModelAttribute("putUser") PostUser user) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String userId = authentication.getName();
+        usersService.updateUser(Integer.valueOf(userId), user.userName, user.password);
     }
 }

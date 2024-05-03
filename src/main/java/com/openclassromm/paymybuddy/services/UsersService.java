@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UsersService {
+    private final Logger LOGGER = LogManager.getLogger(UsersService.class);
     @Autowired
     private UserRepository userRepository;
 
-    private final Logger LOGGER = LogManager.getLogger(UsersService.class);
-
-    UserServiceMapperImpl userServiceMapper = new UserServiceMapperImpl();
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+
+    UserServiceMapperImpl userServiceMapper = new UserServiceMapperImpl();
 
     public Boolean createUserAccount(PostUser postUser) {
         LOGGER.info("Check if account already exists");
@@ -54,5 +54,10 @@ public class UsersService {
      */
     private boolean checkIfEmailExists(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    public void updateUser(Integer id, String userName, String password) {
+        password = passwordEncoder.encode(password);
+        userRepository.updateUser(id, userName, password);
     }
 }

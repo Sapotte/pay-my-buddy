@@ -11,7 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import static com.openclassromm.paymybuddy.Constants.User.USER_ID;
+import static com.openclassromm.paymybuddy.Constants.User.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -73,5 +73,11 @@ public class UsersServiceTest {
 
         assertThrows(NotAllowed.class, () -> usersService.deleteUser(USER_ID));
         verify(userRepository, times(0)).delete(any(User.class));
+    }
+
+    @Test
+    void updateUserOk() {
+        usersService.updateUser(Integer.valueOf(USER_ID), USER_NAME, USER_PASSWORD);
+        verify(userRepository, times(1)).updateUser(any(), any(), any());
     }
 }
