@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{fragments :: common-head(~{::title})}">
+</head>
+<body>
+<div th:replace="~{fragments :: header}"></div>
+<div class="container container30 border border-3 border-success">
+    <h2 class="text-center color-success">Inscrivez-vous</h2>
+    <!--/*@thymesVar id="postExternTransaction" type="PostExternTransaction"*/-->
+    <form action="#" method="POST" th:action="@{/externTransactions}" th:object="${postExternTransaction}">
+        <div class="mb-4">
+            <label class="form-label" for="amount">Amount</label>
+            <input class="form-control" id="amount" name="amount" placeholder="Montant" required
+                   th:field="*{amount}"
+                   type="text"/>
+        </div>
+        <div class="mb-4">
+            <label class="form-label" for="account">Account</label>
+            <input class="form-control" id="account" name="account" placeholder="Le compte" required
+                   th:field="*{account}"
+                   type="text"/>
+        </div>
+        <div class="mb-4">
+            <select aria-label="Transaction type" class="form-select" th:field="*{type}">
+                <option value="+">From bank account</option>
+                <option value="-">To bank account</option>
+            </select>
+        </div>
+        <input class="btn btn-primary mb-4 center" type="submit" value="New transaction"/>
+        <div class="color-primary" th:if="${param.error}">
+            An error occured, please try again
+        </div>
+    </form>
+    <a class="mb-4 center text-center" th:href="@{/account/0}"> Return to account </a>
+</div>
+</body>
+</html>

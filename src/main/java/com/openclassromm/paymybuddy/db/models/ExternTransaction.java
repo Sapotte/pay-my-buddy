@@ -27,7 +27,7 @@ public class ExternTransaction {
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @Size(max = 2)
+    @Size(max = 3)
     @NotNull
     @Column(name = "type", nullable = false, length = 2)
     private String type;

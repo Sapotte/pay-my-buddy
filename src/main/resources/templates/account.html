@@ -1,14 +1,68 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="~{fragments :: common-head(~{::title})}">
-    <title th:text="${title}">Account</title></head>
+<head th:replace="~{fragments :: common-head(~{::title})}"></head>
 <body>
-<div th:replace="~{fragments :: header}"></div>
-<div class="container container30 center border border-3 border-success p-20 text-center">
-    <h2 class="text-center mb-3">Bonjour <span th:text="${user.getUserName()}"></span></h2>
-    <div>Le montant de votre compte est de <span th:text="${user.getAccountBalance()}"></span></div>
-    <a th:href="@{/addFriend}"><i class="fa-solid fa-plus mr-2"></i>Ajouter un ami</a>
+<div class="container">
+    <div th:replace="~{fragments :: header}"></div>
+    <div class="container container30 center border border-3 border-success p-20 text-center">
+        <h2 class="text-center mb-3">Hello <span th:text="${user.getUserName()}"></span></h2>
+        <div>Your account balance is <span th:text="${user.getAccountBalance()}"></span></div>
+        <a th:href="@{/addFriend}"><i class="fa-solid fa-plus mr-2"></i>Add a new friend</a>
+    </div>
+    <div class="center border p-3 w-75 m-auto">
+        <h5 class="ml-2">Extern Transactions</h5>
+        <table class="table center w-50 m-auto">
+            <thead>
+            <tr>
+                <th scope="col"> Date</th>
+                <th scope="col"> Account</th>
+                <th scope="col"> Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${externTransactions.isEmpty()}">
+                <td colspan="2"> No Transactions yet</td>
+            </tr>
+            <tr th:each="transaction : ${externTransactions}">
+                <td><span th:text="${transaction.getDate()}"></span></td>
+                <td><span th:text="${transaction.getAccount()}"></span></td>
+                <td><span th:text="${transaction.getType()}+${transaction.getAmount()}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+        <a th:href="@{/externTransactions}"><i class="fa-solid fa-plus mr-2"></i>New transaction with your bank account</a>
+        <div class="error m-auto" th:if="${param.errorUnknown}">
+            An error occurred, please try again
+        </div>
+        <div class="error m-auto" th:if="${param.notEnough}">
+            Not enough in your account
+        </div>
+        <div class="d-flex justify-content-end mb-3">
+            <nav aria-label="Page navigation"
+            <ul class="pagination">
+                <li class="page-item" th:if="${externTransactions.hasPrevious()}">
+                    <a aria-label="Previous" class="page-link"
+                       th:href="@{'/account?externTransactionsPage='+${externTransactions.number-1}}">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li th:class="${pageNumber == externTransactions.number ? 'page-item active' : 'page-item'}"
+                    th:each="pageNumber : ${#numbers.sequence(0, externTransactions.totalPages-1)}">
+                    <a class="page-link" th:href="@{'/account?externTransactionsPage='+${pageNumber}}"
+                       th:text="${pageNumber + 1}">
+                    </a>
+                </li>
+                <li class="page-item" th:if="${externTransactions.hasNext()}">
+                    <a aria-label="Next"
+                       class="page-link"
+                       th:href="@{'/account?externTransactionsPage='+${externTransactions.number+1}}">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+            </nav>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>

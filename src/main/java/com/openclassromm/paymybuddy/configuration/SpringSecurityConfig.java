@@ -12,33 +12,38 @@ import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
+
     @Autowired
     private CustomUserDetailsService usersService;
+
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .addFilterBefore(new LoginRedirectionFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/users/**").permitAll()
                         .requestMatchers("/css/**", "/login/**", "/signup/**", "/swagger-ui/**").permitAll()
-                        .requestMatchers("/account", "/addFriend", "friendships").authenticated())
+                        .requestMatchers("/account/**", "/addFriend", "/friendships/**", "/externTransaction/**", "/externTransactions/**").authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .usernameParameter("email")
                         .passwordParameter("password")
-                        .defaultSuccessUrl("/account", true)
+                        .defaultSuccessUrl("/account?externTransactionsPage=0", true)
                         .permitAll())
                 .logout(logout -> logout
+                        .clearAuthentication(true)
+                        .invalidateHttpSession(true)
                         .logoutSuccessUrl("/login?logout"));
         return http.build();
     }

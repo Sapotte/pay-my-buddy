@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByEmail(String username);
 
     @Query("SELECT u.id FROM User u WHERE u.email = ?1")
-    Integer findUserByEmail(String email);
+    Integer findUserIdByEmail(String email);
 
     @NotNull
     Optional<User> findById(Integer id);
@@ -25,4 +25,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Modifying
     @Query("UPDATE User u SET u.userName = :userName, u.password = :password WHERE u.id=:id")
     void updateUser(@Param("id") Integer id, @Param("userName") String userName, @Param("password") String password);
+
+    @Modifying
+    @Query("UPDATE User u SET u.accountBalance = u.accountBalance + :amount WHERE u.id = :userId")
+    void increaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Float amount);
+
+    @Modifying
+    @Query("UPDATE User u SET u.accountBalance = u.accountBalance - :amount WHERE u.id = :userId")
+    void decreaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Float amount);
 }
