@@ -64,7 +64,7 @@ public class InternTransactionsService {
         Page<InternTransaction> internTransactionList = internTransactionRepository.findAllByIdUserOrIdFriendOrderByIdDesc(user.getId(), pageable);
         return internTransactionList.map(it -> {
             InternTransactionsDto dto = new InternTransactionsDto();
-            if (it.getIdUser().equals(user.getId())) {
+            if (it.getIdUser().getId().equals(user.getId())) {
                 dto.setFriend(userRepository.findUsernameById(it.getIdFriend()));
                 dto.setType("-");
             } else {

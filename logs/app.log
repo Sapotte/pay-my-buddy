@@ -4045,3 +4045,64 @@ org.springframework.expression.spel.SpelEvaluationException: EL1004E: Method cal
 2024-05-09 16:53:51.519 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
 2024-05-09 16:53:51.723 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
 2024-05-09 16:53:51.724 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@a36999b
+2024-05-09 16:56:10.161 [http-nio-8080-exec-10] INFO  com.openclassromm.paymybuddy.controllers.ViewController - Sign up
+2024-05-09 16:56:21.670 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-09 16:56:21.687 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.services.UsersService - Creating user account
+2024-05-09 16:56:35.784 [http-nio-8080-exec-9] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@544c115d]
+2024-05-09 16:56:35.872 [http-nio-8080-exec-10] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 0
+2024-05-09 16:56:48.858 [http-nio-8080-exec-6] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Account balance increased
+2024-05-09 16:56:48.863 [http-nio-8080-exec-6] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Transaction added
+2024-05-09 16:56:48.879 [http-nio-8080-exec-7] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 16:56:48.879 [http-nio-8080-exec-7] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@e07fb7c
+2024-05-09 16:57:02.076 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 16:57:02.077 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@4884080a
+2024-05-09 16:57:22.183 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 16:57:22.183 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@704dd93f
+2024-05-09 16:57:38.020 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Account balance user decreased
+2024-05-09 16:57:38.024 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Account balance user increased
+2024-05-09 16:57:38.027 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Transaction added
+2024-05-09 16:57:38.043 [http-nio-8080-exec-5] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 16:57:38.043 [http-nio-8080-exec-5] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@a99f96c
+2024-05-09 16:58:21.039 [http-nio-8080-exec-3] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@14b38fe7]
+2024-05-09 16:58:21.122 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 16:58:21.123 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@4f902f01
+2024-05-09 17:00:09.457 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-09 17:00:09.464 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-09 17:00:09.472 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-09 17:00:15.506 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 21864 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-09 17:00:15.517 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-09 17:00:15.568 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-09 17:00:15.568 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-09 17:00:16.650 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-09 17:00:16.731 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+2024-05-09 17:00:17.365 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-09 17:00:17.379 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-09 17:00:17.382 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-09 17:00:17.382 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-09 17:00:17.446 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-09 17:00:17.446 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1877 ms
+2024-05-09 17:00:17.614 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-09 17:00:17.675 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-09 17:00:17.714 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-09 17:00:17.955 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-09 17:00:17.988 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-09 17:00:18.159 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@600173d1
+2024-05-09 17:00:18.162 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-09 17:00:18.217 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-09 17:00:19.194 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-09 17:00:19.296 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-09 17:00:19.533 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-09 17:00:20.448 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-09 17:00:20.799 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@246e5c30, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a4ee06a, org.springframework.security.web.context.SecurityContextHolderFilter@5bac834f, org.springframework.security.web.header.HeaderWriterFilter@55ebd16c, org.springframework.web.filter.CorsFilter@55b28d99, org.springframework.security.web.csrf.CsrfFilter@631ee694, org.springframework.security.web.authentication.logout.LogoutFilter@78554a1f, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@2ed3f0e5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3019f341, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e5c0e51, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e6257d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7fcff51d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@788ab6d3, org.springframework.security.web.access.ExceptionTranslationFilter@4f2a7016, org.springframework.security.web.access.intercept.AuthorizationFilter@73649db0]
+2024-05-09 17:00:21.174 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-09 17:00:21.201 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-05-09 17:00:21.224 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-09 17:00:21.234 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 6.094 seconds (process running for 7.505)
+2024-05-09 17:00:27.352 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-09 17:00:27.352 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-09 17:00:27.354 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-05-09 17:00:27.548 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 17:00:27.549 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@222d9346
+2024-05-09 17:00:49.625 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@1fad8760]
+2024-05-09 17:00:49.713 [http-nio-8080-exec-5] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-09 17:00:49.713 [http-nio-8080-exec-5] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.db.models.ExternTransaction@2f36af41
