@@ -5,9 +5,90 @@
 <div class="container">
     <div th:replace="~{fragments :: header}"></div>
     <div class="container container30 center border border-3 border-success p-20 text-center">
-        <h2 class="text-center mb-3">Hello <span th:text="${user.getUserName()}"></span></h2>
+        <h2 class="text-center mb-3">Hello <span th:text="${user.getUsername()}"></span></h2>
         <div>Your account balance is <span th:text="${user.getAccountBalance()}"></span></div>
         <a th:href="@{/addFriend}"><i class="fa-solid fa-plus mr-2"></i>Add a new friend</a>
+    </div>
+    <div class="error m-auto text-center" th:if="${param.errorUnknown}">
+        An error occurred, please try again
+    </div>
+    <div class="error m-auto text-center" th:if="${param.notEnough}">
+        Not enough in your account
+    </div>
+    <div class="center border p-3 w-75 m-auto">
+        <h5 class="ml-2">Intern Transactions</h5>
+        <div class="d-flex align-items-center justify-content-center mb-2">
+            <form action="#" class="form-inline d-flex border border-5 border-success-subtle p-3" method="POST" th:action="@{/internTransactions}"
+                  th:object="${postInternTransaction}">
+                <span class="p-2">New transaction</span>
+                <div class="form-group mb-2">
+                    <select aria-label="Transaction type" class="form-control mr-sm-2" id="friend" th:field="*{friend}">
+                        <option value="null">Send to</option>
+                        <option th:each="friend : ${friends}" th:text="${friend.getValue()}"
+                                th:value="${friend.getKey()}"></option>
+                    </select>
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <input class="form-control" id="amount" name="amount" placeholder="Amount" required
+                           th:field="*{amount}"
+                           type="text"/>
+                </div>
+                <div class="form-group mx-sm-2 mb-2">
+                    <input class="form-control" id="label" name="label" placeholder="Label" required
+                           th:field="*{label}"
+                           type="text"/>
+                </div>
+                <input class="btn btn-primary mb-2 height-50" type="submit" value="Go"/>
+            </form>
+        </div>
+        <table class="table center w-80 m-auto">
+            <thead>
+            <tr>
+                <th scope="col"> Date</th>
+                <th scope="col"> Friend</th>
+                <th scope="col"> Amount</th>
+                <th scope="col"> Label</th>
+                <th scope="col"> Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${internTransactions.isEmpty()}">
+                <td colspan="2"> No Transactions yet</td>
+            </tr>
+            <tr th:each="transaction : ${internTransactions}">
+                <td><span th:text="${transaction.getDate()}"></span></td>
+                <td><span th:text="${transaction.getFriend()}"></span></td>
+                <td><span th:text="${transaction.getType()}+${transaction.getAmount()}"></span></td>
+                <td><span th:text="${transaction.getLabel()}"></span></td>
+                <td><span th:text="${transaction.getStatus()}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end mb-3">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item" th:if="${internTransactions.hasPrevious()}">
+                        <a aria-label="Previous" class="page-link"
+                           th:href="@{'/account?externTransactionsPage='+${internTransactions.number-1}}">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li th:class="${pageNumber == internTransactions.number ? 'page-item active' : 'page-item'}"
+                        th:each="pageNumber : ${#numbers.sequence(0, internTransactions.totalPages-1)}">
+                        <a class="page-link" th:href="@{'/account?internTransactionsPage='+${pageNumber}}"
+                           th:text="${pageNumber + 1}">
+                        </a>
+                    </li>
+                    <li class="page-item" th:if="${internTransactions.hasNext()}">
+                        <a aria-label="Next"
+                           class="page-link"
+                           th:href="@{'/account?internTransactionsPage='+${externTransactions.number+1}}">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
     <div class="center border p-3 w-75 m-auto">
         <h5 class="ml-2">Extern Transactions</h5>
@@ -31,14 +112,8 @@
             </tbody>
         </table>
         <a th:href="@{/externTransactions}"><i class="fa-solid fa-plus mr-2"></i>New transaction with your bank account</a>
-        <div class="error m-auto" th:if="${param.errorUnknown}">
-            An error occurred, please try again
-        </div>
-        <div class="error m-auto" th:if="${param.notEnough}">
-            Not enough in your account
-        </div>
         <div class="d-flex justify-content-end mb-3">
-            <nav aria-label="Page navigation"
+            <nav aria-label="Page navigation">
             <ul class="pagination">
                 <li class="page-item" th:if="${externTransactions.hasPrevious()}">
                     <a aria-label="Previous" class="page-link"

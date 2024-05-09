@@ -24,21 +24,21 @@ public class FriendshipService {
         if (friend.isPresent()) {
             Friendship friendship = new Friendship();
             friendship.setIdUser(user);
-            friendship.setId2User(friend.get());
+            friendship.setIdFriend(friend.get().getId());
             friendship.setStatus("A");
             friendshipRepository.save(friendship);
         } else {
-            throw new IllegalArgumentException("Invalid user or friend");
+            throw new IllegalArgumentException("Invalid friend");
         }
 
     }
 
-    public List<Pair<String, String>> getFriends(Integer userId) {
+    public List<Pair<Integer, String>> getFriends(Integer userId) {
         var friends = friendshipRepository.findFriendshipsByUserId(userId);
         if (!friends.isEmpty()) {
-            return friends.stream().map(friend -> userId.equals(friend.getIdUser().getId()) ?
-                            Pair.of(friend.getIdUser().getUserName(), friend.getIdUser().getEmail()) :
-                            Pair.of(friend.getId2User().getUserName(), friend.getId2User().getEmail()))
+            return friends.stream().map(friend -> userId.equals(friend.getIdUser().getId()) && friend.getStatus().equals("A") ?
+                            Pair.of(friend.getIdFriend(), userRepository.findUsernameById(friend.getIdFriend())) :
+                            Pair.of(friend.getIdUser().getId(), friend.getIdUser().getUsername()))
                     .toList();
         }
         return null;

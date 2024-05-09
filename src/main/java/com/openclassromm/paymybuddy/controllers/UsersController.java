@@ -58,6 +58,6 @@ public class UsersController {
     public void updateUser(@ModelAttribute("putUser") PostUser user) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userId = authentication.getName();
-        usersService.updateUser(Integer.valueOf(userId), user.userName, user.password);
+        usersService.updateUser(Integer.valueOf(userId), user.username, user.password);
     }
 }

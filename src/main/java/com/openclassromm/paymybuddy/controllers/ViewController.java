@@ -1,13 +1,17 @@
 package com.openclassromm.paymybuddy.controllers;
 
+import com.openclassromm.paymybuddy.controllers.dto.InternTransactionsDto;
 import com.openclassromm.paymybuddy.controllers.dto.PostExternTransaction;
+import com.openclassromm.paymybuddy.controllers.dto.PostInternTransaction;
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.ExternTransaction;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.services.ExternTransactionsService;
 import com.openclassromm.paymybuddy.services.FriendshipService;
+import com.openclassromm.paymybuddy.services.InternTransactionsService;
 import jakarta.annotation.Nullable;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -31,6 +36,8 @@ public class ViewController {
     FriendshipService friendshipService;
     @Autowired
     ExternTransactionsService externTransactionsService;
+    @Autowired
+    InternTransactionsService internTransactionsService;
 
     @GetMapping(value = "/login")
     public String login(Model model) {
@@ -58,18 +65,28 @@ public class ViewController {
         } catch (Exception e) {
             LOGGER.error(e);
         }
-
+        // Info user
         if (!optionalUser.isEmpty()) {
             User user = optionalUser.get();
             model.addAttribute("user", user);
         }
+
+        //List extern transactions
         Page<ExternTransaction> externTransactions = externTransactionsService.getExternTransactionsById(externTransactionsPage, optionalUser.get());
         LOGGER.info(externTransactions.getTotalElements() + externTransactions.getTotalPages());
         externTransactions.stream().forEach(trans -> {
             LOGGER.info(trans.toString());
         });
         model.addAttribute("externTransactions", externTransactions);
+
+        // List intern transactions
+        Page<InternTransactionsDto> internTransactions = internTransactionsService.getInternTransactions(internTransactionsPage, optionalUser.get());
+        model.addAttribute("internTransactions", internTransactions);
+
         model.addAttribute("title", "Your account");
+        List<Pair<Integer, String>> friends = friendshipService.getFriends(userId);
+        model.addAttribute("friends", friends);
+        model.addAttribute("postInternTransaction", new PostInternTransaction());
         return "account";
     }
 

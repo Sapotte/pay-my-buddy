@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    Optional<User> findByEmail(String username);
+    Optional<User> findByEmail(String email);
 
     @Query("SELECT u.id FROM User u WHERE u.email = ?1")
     Integer findUserIdByEmail(String email);
@@ -22,8 +22,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     Boolean existsByEmail(String email);
 
+    @Query("SELECT u.username FROM User u WHERE u.id=:id")
+    String findUsernameById(@Param("id") Integer id);
+
     @Modifying
-    @Query("UPDATE User u SET u.userName = :userName, u.password = :password WHERE u.id=:id")
+    @Query("UPDATE User u SET u.username = :userName, u.password = :password WHERE u.id=:id")
     void updateUser(@Param("id") Integer id, @Param("userName") String userName, @Param("password") String password);
 
     @Modifying

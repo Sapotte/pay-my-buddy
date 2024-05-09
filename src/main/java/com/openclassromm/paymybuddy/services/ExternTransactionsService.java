@@ -27,6 +27,8 @@ public class ExternTransactionsService {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    UsersService usersService;
 
     private final ExternTransactionServiceMapperImpl mapper = new ExternTransactionServiceMapperImpl();
 
@@ -34,26 +36,20 @@ public class ExternTransactionsService {
     public void saveTransaction(Integer userId, PostExternTransaction postExternTransaction) throws NotAllowed {
         User user = userRepository.findById(userId).orElse(null);
         try {
-            if ("+".equals(postExternTransaction.getType())) {
+            if ('+' == postExternTransaction.getType()) {
                 userRepository.increaseAccountBalance(userId, postExternTransaction.getAmount());
                 LOGGER.info("Account balance increased");
-            } else if ("-".equals(postExternTransaction.getType())) {
-                checkIfAccountCanBeWithdraw(user.getAccountBalance(), postExternTransaction.getAmount());
+            } else if ('-' == postExternTransaction.getType()) {
+                usersService.checkIfAccountCanBeWithdraw(user.getAccountBalance(), postExternTransaction.getAmount());
                 userRepository.decreaseAccountBalance(userId, postExternTransaction.getAmount());
                 LOGGER.info("Account balance decreased");
             } else {
                 throw new RuntimeException();
             }
-            externTransactionRepository.save(mapper.map(user, postExternTransaction, new Date()));
+            externTransactionRepository.save(mapper.map(user, postExternTransaction, new Date(), 5 / 100 * postExternTransaction.getAmount()));
             LOGGER.info("Transaction added");
         } catch (RuntimeException | NotAllowed e) {
             throw e;
-        }
-    }
-
-    private void checkIfAccountCanBeWithdraw(Float accountBalance, Float amount) throws NotAllowed {
-        if (accountBalance < amount) {
-            throw new NotAllowed("Not enough money in your account");
         }
     }
 

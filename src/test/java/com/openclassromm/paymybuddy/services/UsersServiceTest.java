@@ -29,7 +29,7 @@ public class UsersServiceTest {
     void createUserOk() {
         PostUser postUser = new PostUser();
         postUser.setPassword("password");
-        postUser.setUserName("userName");
+        postUser.setUsername("userName");
         postUser.setEmail("email");
         when(userRepository.existsByEmail(any())).thenReturn(false);
 
@@ -43,7 +43,7 @@ public class UsersServiceTest {
     void createUserAlreadyExistsKo() {
         PostUser postUser = new PostUser();
         postUser.setPassword("password");
-        postUser.setUserName("userName");
+        postUser.setUsername("userName");
         postUser.setEmail("email");
         when(userRepository.existsByEmail(anyString())).thenReturn(true);
         var response = usersService.createUserAccount(postUser);

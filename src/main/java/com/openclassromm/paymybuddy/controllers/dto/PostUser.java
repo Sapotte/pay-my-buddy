@@ -8,14 +8,14 @@ import java.util.Objects;
 @Setter
 public class PostUser {
 
-    public String userName;
+    public String username;
 
     public String email;
 
     public String password;
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getEmail() {
@@ -26,8 +26,8 @@ public class PostUser {
         return password;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setEmail(String email) {
@@ -41,7 +41,7 @@ public class PostUser {
     @Override
     public String toString() {
         return "PostUser{" +
-                "userName='" + userName + '\'' +
+                "userName='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
@@ -52,11 +52,11 @@ public class PostUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PostUser postUser = (PostUser) o;
-        return Objects.equals(userName, postUser.userName) && Objects.equals(email, postUser.email) && Objects.equals(password, postUser.password);
+        return Objects.equals(username, postUser.username) && Objects.equals(email, postUser.email) && Objects.equals(password, postUser.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userName, email, password);
+        return Objects.hash(username, email, password);
     }
 }

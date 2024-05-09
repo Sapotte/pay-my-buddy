@@ -30,7 +30,8 @@ CREATE TABLE intern_transaction
     status    Varchar(2)         NOT NULL,
     amount    Decimal(5, 2)      NOT NULL,
     taxe      Decimal(3)         NOT NULL,
-    id_sender Int                NOT NULL,
+    id_friend Int                NOT NULL,
+    label     Varchar(350),
     id_user   Int                NOT NULL,
     CONSTRAINT intern_transaction_PK PRIMARY KEY (id),
     CONSTRAINT intern_transaction_user_FK FOREIGN KEY (id_user) REFERENCES user (id)
@@ -68,5 +69,4 @@ CREATE TABLE friendship
     CONSTRAINT friendship_PK PRIMARY KEY (id),
     CONSTRAINT friendship_user_FK FOREIGN KEY (id_user) REFERENCES user (id)
 ) ENGINE = InnoDB;
-
 

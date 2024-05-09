@@ -60,4 +60,10 @@ public class UsersService {
         password = passwordEncoder.encode(password);
         userRepository.updateUser(id, userName, password);
     }
+
+    public void checkIfAccountCanBeWithdraw(Float accountBalance, Float amount) throws NotAllowed {
+        if (accountBalance < amount) {
+            throw new NotAllowed("Not enough money in your account");
+        }
+    }
 }

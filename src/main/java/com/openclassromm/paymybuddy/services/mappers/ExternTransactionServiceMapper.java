@@ -16,5 +16,6 @@ public interface ExternTransactionServiceMapper {
     @Mapping(target = "date", source = "date")
     @Mapping(target = "amount", source = "postExternTransaction.amount", resultType = Float.class)
     @Mapping(target = "type", source = "postExternTransaction.type")
-    ExternTransaction map(User user, PostExternTransaction postExternTransaction, Date date);
+    @Mapping(target = "taxe", source = "taxe")
+    ExternTransaction map(User user, PostExternTransaction postExternTransaction, Date date, Float taxe);
 }

@@ -1,17 +1,15 @@
 package com.openclassromm.paymybuddy.controllers.dto;
 
-import com.openclassromm.paymybuddy.db.models.User;
-
 public class PostInternTransaction {
-    private User friend;
+    private Integer friend;
     private Float amount;
     private String label;
 
-    public User getFriend() {
+    public Integer getFriend() {
         return friend;
     }
 
-    public void setFriend(User friend) {
+    public void setFriend(Integer friend) {
         this.friend = friend;
     }
 

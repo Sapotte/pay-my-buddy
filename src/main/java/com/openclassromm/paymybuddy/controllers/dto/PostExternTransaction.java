@@ -3,7 +3,7 @@ package com.openclassromm.paymybuddy.controllers.dto;
 public class PostExternTransaction {
     private Float amount;
     private String account;
-    private String type;
+    private Character type;
 
     public Float getAmount() {
         return amount;
@@ -21,11 +21,11 @@ public class PostExternTransaction {
         this.account = account;
     }
 
-    public String getType() {
+    public Character getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Character type) {
         this.type = type;
     }
 }

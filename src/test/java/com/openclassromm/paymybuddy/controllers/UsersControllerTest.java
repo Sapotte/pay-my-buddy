@@ -99,7 +99,7 @@ public class UsersControllerTest {
         SecurityContextHolder.setContext(securityContext);
 
         PostUser user = new PostUser();
-        user.setUserName(USER_NAME);
+        user.setUsername(USER_NAME);
         user.setPassword(USER_PASSWORD);
         user.setEmail(USER_EMAIL);
 

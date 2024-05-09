@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface FriendshipRepository extends JpaRepository<Friendship, Integer> {
-    @Query(value = "SELECT fs.id2User, fs.idUser FROM Friendship fs WHERE fs.idUser = :userId OR fs.id2User = ?1")
+    @Query(value = "SELECT fs FROM Friendship fs WHERE (fs.idUser.id = :userId OR fs.idFriend = :userId) AND fs.status = 'A'")
     List<Friendship> findFriendshipsByUserId(@Param("userId") Integer userId);
 }

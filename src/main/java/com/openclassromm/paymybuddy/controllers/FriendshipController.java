@@ -40,7 +40,7 @@ public class FriendshipController {
 
     @PreAuthorize("isAuthenticated()")
     @GetMapping
-    public List<Pair<String, String>> getFriendsByUserId() {
+    public List<Pair<Integer, String>> getFriendsByUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         var user = (UserDetails) authentication.getPrincipal();
         try {

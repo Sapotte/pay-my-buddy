@@ -33,7 +33,7 @@ public class SpringSecurityConfig extends SecurityConfigurerAdapter<DefaultSecur
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/users/**").permitAll()
                         .requestMatchers("/css/**", "/login/**", "/signup/**", "/swagger-ui/**").permitAll()
-                        .requestMatchers("/account/**", "/addFriend", "/friendships/**", "/externTransaction/**", "/externTransactions/**").authenticated())
+                        .requestMatchers("/account/**", "/addFriend", "/friendships/**", "/externTransaction/**", "/externTransactions/**", "/internTransactions/**").authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(form -> form
                         .loginPage("/login")
