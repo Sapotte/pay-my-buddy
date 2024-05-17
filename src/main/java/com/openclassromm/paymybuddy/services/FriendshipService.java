@@ -30,7 +30,6 @@ public class FriendshipService {
         } else {
             throw new IllegalArgumentException("Invalid friend");
         }
-
     }
 
     public List<Pair<Integer, String>> getFriends(Integer userId) {

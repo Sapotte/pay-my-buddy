@@ -38,7 +38,6 @@ public class InternTransactionsService {
     public void saveTransaction(Integer userId, PostInternTransaction postInternTransaction) throws NotAllowed {
         User user = userRepository.findById(userId).orElse(null);
         usersService.checkIfAccountCanBeWithdraw(user.getAccountBalance(), postInternTransaction.getAmount());
-        Boolean passed;
         try {
             userRepository.decreaseAccountBalance(userId, postInternTransaction.getAmount());
             LOGGER.info("Account balance user decreased");

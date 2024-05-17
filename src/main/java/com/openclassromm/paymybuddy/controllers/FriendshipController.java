@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,10 +26,9 @@ public class FriendshipController {
     @PreAuthorize("isAuthenticated()")
     @PostMapping
     public String createFriendship(@ModelAttribute("userEmail") String userEmail) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        var user = (UserDetails) authentication.getPrincipal();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         try {
-            friendshipService.createFriendship(Integer.valueOf(user.getUsername()), userEmail);
+            friendshipService.createFriendship(Integer.valueOf(auth.getName()), userEmail);
             return "redirect:/account";
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
@@ -41,10 +39,9 @@ public class FriendshipController {
     @PreAuthorize("isAuthenticated()")
     @GetMapping
     public List<Pair<Integer, String>> getFriendsByUserId() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        var user = (UserDetails) authentication.getPrincipal();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         try {
-            return friendshipService.getFriends(Integer.valueOf(user.getUsername()));
+            return friendshipService.getFriends(Integer.valueOf(auth.getName()));
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
             return null;
