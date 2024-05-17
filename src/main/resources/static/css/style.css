@@ -13,3 +13,11 @@
 .error {
     color: red;
 }
+
+.card {
+    margin: 2em auto;
+}
+
+.btn-header {
+    margin: 2em 0.5em;
+}

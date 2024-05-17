@@ -1,7 +1,7 @@
 package com.openclassromm.paymybuddy.controllers;
 
+import com.openclassromm.paymybuddy.controllers.dto.ExternTransactionDto;
 import com.openclassromm.paymybuddy.controllers.dto.InternTransactionsDto;
-import com.openclassromm.paymybuddy.db.models.ExternTransaction;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.services.ExternTransactionsService;
@@ -98,7 +98,7 @@ public class ViewControllerTest {
     @Test
     void account_ShouldReturnCorrectView() throws Exception {
         Page<InternTransactionsDto> pageInternTransaction = new PageImpl<>(List.of(new InternTransactionsDto()));
-        Page<ExternTransaction> pageExternTransaction = new PageImpl<>(List.of(new ExternTransaction()));
+        Page<ExternTransactionDto> pageExternTransaction = new PageImpl<>(List.of(new ExternTransactionDto()));
 
         setupSecurityContext();
         when(securityContext.getAuthentication()).thenReturn(authentication);
@@ -106,7 +106,7 @@ public class ViewControllerTest {
         SecurityContextHolder.setContext(securityContext);
 
         when(userRepository.findById(any(Integer.class))).thenReturn(Optional.of(new User()));
-        when(externTransactionsService.getExternTransactionsById(anyInt(), any(User.class))).thenReturn(new PageImpl<ExternTransaction>(new ArrayList<>())); //Return empty Page object
+        when(externTransactionsService.getExternTransactionsById(anyInt(), any(User.class))).thenReturn(new PageImpl<ExternTransactionDto>(new ArrayList<>())); //Return empty Page object
         when(internTransactionsService.getInternTransactions(anyInt(), any(User.class))).thenReturn(new PageImpl<InternTransactionsDto>(new ArrayList<>())); //Return empty Page object
         when(friendshipService.getFriends(anyInt())).thenReturn(new ArrayList<>());
 

@@ -1,6 +1,7 @@
 package com.openclassromm.paymybuddy.controllers;
 
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
+import com.openclassromm.paymybuddy.errors.AlreadyExistant;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.UsersService;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,6 @@ import org.springframework.security.test.context.support.WithMockUser;
 
 import static com.openclassromm.paymybuddy.Constants.User.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,9 +30,8 @@ public class UsersControllerTest {
     private SecurityContext securityContext;
 
     @Test
-    void createUserOk() {
+    void createUserOk() throws AlreadyExistant {
         PostUser user = new PostUser();
-        when(usersService.createUserAccount(any())).thenReturn(true);
 
         var response = usersController.addPerson(user);
 
@@ -41,14 +40,25 @@ public class UsersControllerTest {
     }
 
     @Test
-    void createUserAlreadyExistsKo() {
+    void createUserAlreadyExistsKo() throws AlreadyExistant {
         PostUser user = new PostUser();
-        when(usersService.createUserAccount(any())).thenReturn(false);
+        doThrow(AlreadyExistant.class).when(usersService).createUserAccount(user);
 
         var response = usersController.addPerson(user);
 
         verify(usersService, times(1)).createUserAccount(user);
         assertEquals("redirect:/login?alreadyExisted", response);
+    }
+
+    @Test
+    void createUsersKo() throws AlreadyExistant {
+        PostUser user = new PostUser();
+        doThrow(RuntimeException.class).when(usersService).createUserAccount(user);
+
+        var response = usersController.addPerson(user);
+
+        verify(usersService, times(1)).createUserAccount(user);
+        assertEquals("redirect:/login?errorDatabase", response);
     }
 
     @Test

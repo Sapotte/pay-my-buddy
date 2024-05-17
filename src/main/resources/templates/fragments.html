@@ -15,11 +15,15 @@
 </th:block>
 
 <div th:fragment="header">
-    <header class="d-flex flex-row justify-content-between">
+    <header>
+        <div class="d-flex flex-row justify-content-end" sec:authorize="isAuthenticated()">
+            <a class="btn btn-secondary btn-header" th:href="@{/updateUser}">Update your account</a>
+            <form method="post" th:action="@{/logout}" th:csrf>
+                <input class="btn btn-primary btn-header" type="submit" value="Logout"/>
+            </form>
+            <a class="btn btn-link btn-header" th:href="@{/deleteUser}">Delete your account</a>
+        </div>
         <h1 class=" w-90 text-center" id="mainTitle">Pay My Buddy</h1>
-        <form method="post" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:csrf>
-            <input class="btn btn-primary mb-3" type="submit" value="Logout"/>
-        </form>
     </header>
 </div>
 

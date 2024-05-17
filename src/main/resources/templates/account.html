@@ -6,7 +6,7 @@
     <div th:replace="~{fragments :: header}"></div>
     <div class="container container30 center border border-3 border-success p-20 text-center">
         <h2 class="text-center mb-3">Hello <span th:text="${user.getUsername()}"></span></h2>
-        <div>Your account balance is <span th:text="${user.getAccountBalance()}"></span></div>
+        <div>Your account balance is <span th:text="${user.getAccountBalance()}"></span></span><span>€</span></div>
         <a th:href="@{/addFriend}"><i class="fa-solid fa-plus mr-2"></i>Add a new friend</a>
     </div>
     <div class="error m-auto text-center" th:if="${param.errorUnknown}">
@@ -15,10 +15,11 @@
     <div class="error m-auto text-center" th:if="${param.notEnough}">
         Not enough in your account
     </div>
-    <div class="center border p-3 w-75 m-auto">
+    <div class="card center border p-3 w-75">
         <h5 class="ml-2">Intern Transactions</h5>
         <div class="d-flex align-items-center justify-content-center mb-2">
-            <form action="#" class="form-inline d-flex border border-5 border-success-subtle p-3" method="POST" th:action="@{/internTransactions}"
+            <form action="#" class="form-inline d-flex border border-5 border-success-subtle p-3 align-items-center"
+                  method="POST" th:action="@{/internTransactions}"
                   th:object="${postInternTransaction}">
                 <span class="p-2">New transaction</span>
                 <div class="form-group mb-2">
@@ -33,6 +34,7 @@
                            th:field="*{amount}"
                            type="text"/>
                 </div>
+                <span>+5% commission</span>
                 <div class="form-group mx-sm-2 mb-2">
                     <input class="form-control" id="label" name="label" placeholder="Label" required
                            th:field="*{label}"
@@ -58,7 +60,8 @@
             <tr th:each="transaction : ${internTransactions}">
                 <td><span th:text="${transaction.getDate()}"></span></td>
                 <td><span th:text="${transaction.getFriend()}"></span></td>
-                <td><span th:text="${transaction.getType()}+${transaction.getAmount()}"></span></td>
+                <td><span th:text="${transaction.getType()}+${transaction.getAmount()}" €></span></span><span>€</span>
+                </td>
                 <td><span th:text="${transaction.getLabel()}"></span></td>
                 <td><span th:text="${transaction.getStatus()}"></span></td>
             </tr>
@@ -90,7 +93,7 @@
             </nav>
         </div>
     </div>
-    <div class="center border p-3 w-75 m-auto">
+    <div class="card center border p-3 w-75">
         <h5 class="ml-2">Extern Transactions</h5>
         <table class="table center w-50 m-auto">
             <thead>
@@ -107,7 +110,8 @@
             <tr th:each="transaction : ${externTransactions}">
                 <td><span th:text="${transaction.getDate()}"></span></td>
                 <td><span th:text="${transaction.getAccount()}"></span></td>
-                <td><span th:text="${transaction.getType()}+${transaction.getAmount()}"></span></td>
+                <td><span th:text="${transaction.getType()}+${transaction.getAmount()}"></span></span><span>€</span>
+                </td>
             </tr>
             </tbody>
         </table>

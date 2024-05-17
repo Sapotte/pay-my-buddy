@@ -31,9 +31,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Modifying
     @Query("UPDATE User u SET u.accountBalance = u.accountBalance + :amount WHERE u.id = :userId")
-    void increaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Float amount);
+    void increaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Double amount);
 
     @Modifying
     @Query("UPDATE User u SET u.accountBalance = u.accountBalance - :amount WHERE u.id = :userId")
-    void decreaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Float amount);
+    void decreaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Double amount);
 }

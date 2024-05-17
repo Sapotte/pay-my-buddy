@@ -10,9 +10,9 @@
 CREATE TABLE user
 (
     id              Int Auto_increment NOT NULL,
-    password        Varchar(20)        NOT NULL,
+    password        Varchar(300)       NOT NULL,
     username        Varchar(100)       NOT NULL,
-    account_balance Float              NOT NULL,
+    account_balance Double             NOT NULL,
     email           Varchar(150)       NOT NULL,
     CONSTRAINT user_AK UNIQUE (email),
     CONSTRAINT user_PK PRIMARY KEY (id)
@@ -28,10 +28,10 @@ CREATE TABLE intern_transaction
     id        Int Auto_increment NOT NULL,
     date      Date               NOT NULL,
     status    Varchar(2)         NOT NULL,
-    amount    Decimal(5, 2)      NOT NULL,
-    taxe      Decimal(3)         NOT NULL,
+    amount    Double             NOT NULL,
+    taxe      Double             NOT NULL,
     id_friend Int                NOT NULL,
-    label     Varchar(350),
+    label     Varchar(1000)      NOT NULL,
     id_user   Int                NOT NULL,
     CONSTRAINT intern_transaction_PK PRIMARY KEY (id),
     CONSTRAINT intern_transaction_user_FK FOREIGN KEY (id_user) REFERENCES user (id)
@@ -48,8 +48,8 @@ CREATE TABLE extern_transaction
     account Varchar(50)        NOT NULL,
     date    Date               NOT NULL,
     type    Char(1)            NOT NULL,
-    amount  Float              NOT NULL,
-    taxe    Float              NOT NULL,
+    amount  Double             NOT NULL,
+    taxe    Double             NOT NULL,
     id_user Int                NOT NULL,
     CONSTRAINT extern_transaction_PK PRIMARY KEY (id),
     CONSTRAINT extern_transaction_user_FK FOREIGN KEY (id_user) REFERENCES user (id)

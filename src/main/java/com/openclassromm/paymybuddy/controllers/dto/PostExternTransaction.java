@@ -1,15 +1,15 @@
 package com.openclassromm.paymybuddy.controllers.dto;
 
 public class PostExternTransaction {
-    private Float amount;
+    private Double amount;
     private String account;
     private Character type;
 
-    public Float getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

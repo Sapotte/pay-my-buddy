@@ -1,10 +1,6 @@
 package com.openclassromm.paymybuddy.controllers;
 
-import com.openclassromm.paymybuddy.controllers.dto.InternTransactionsDto;
-import com.openclassromm.paymybuddy.controllers.dto.PostExternTransaction;
-import com.openclassromm.paymybuddy.controllers.dto.PostInternTransaction;
-import com.openclassromm.paymybuddy.controllers.dto.PostUser;
-import com.openclassromm.paymybuddy.db.models.ExternTransaction;
+import com.openclassromm.paymybuddy.controllers.dto.*;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.services.ExternTransactionsService;
@@ -72,7 +68,7 @@ public class ViewController {
         }
 
         //List extern transactions
-        Page<ExternTransaction> externTransactions = externTransactionsService.getExternTransactionsById(externTransactionsPage, optionalUser.get());
+        Page<ExternTransactionDto> externTransactions = externTransactionsService.getExternTransactionsById(externTransactionsPage, optionalUser.get());
         LOGGER.info(externTransactions.getTotalElements() + externTransactions.getTotalPages());
         externTransactions.stream().forEach(trans -> {
             LOGGER.info(trans.toString());
@@ -102,5 +98,12 @@ public class ViewController {
         model.addAttribute("postExternTransaction", new PostExternTransaction());
         model.addAttribute("title", "New extern transaction");
         return "externTransactions";
+    }
+
+    @RequestMapping(path = "/updateUser")
+    public String updateUser(Model model) {
+        model.addAttribute("putUser", new PostUser());
+        model.addAttribute("title", "Update User");
+        return "updateUser";
     }
 }

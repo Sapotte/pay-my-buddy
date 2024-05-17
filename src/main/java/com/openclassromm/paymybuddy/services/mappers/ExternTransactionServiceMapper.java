@@ -14,8 +14,8 @@ public interface ExternTransactionServiceMapper {
     @Mapping(target = "idUser", source = "user")
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "date", source = "date")
-    @Mapping(target = "amount", source = "postExternTransaction.amount", resultType = Float.class)
+    @Mapping(target = "amount", source = "postExternTransaction.amount", resultType = Double.class)
     @Mapping(target = "type", source = "postExternTransaction.type")
-    @Mapping(target = "taxe", source = "taxe")
-    ExternTransaction map(User user, PostExternTransaction postExternTransaction, Date date, Float taxe);
+    @Mapping(target = "taxe", source = "taxe", resultType = Double.class)
+    ExternTransaction map(User user, PostExternTransaction postExternTransaction, Date date, Double taxe);
 }

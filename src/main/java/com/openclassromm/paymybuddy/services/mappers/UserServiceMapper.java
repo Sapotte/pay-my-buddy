@@ -10,5 +10,5 @@ public interface UserServiceMapper {
 
     @Mapping(target = "accountBalance", source = "accountBalance")
     @Mapping(target = "id", ignore = true)
-    User mapPostUserToUser(PostUser postUser, Float accountBalance);
+    User mapPostUserToUser(PostUser postUser, Double accountBalance);
 }

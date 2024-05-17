@@ -3,6 +3,7 @@ package com.openclassromm.paymybuddy.services;
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
+import com.openclassromm.paymybuddy.errors.AlreadyExistant;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,7 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import static com.openclassromm.paymybuddy.Constants.User.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -26,17 +27,16 @@ public class UsersServiceTest {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Test
-    void createUserOk() {
+    void createUserOk() throws AlreadyExistant {
         PostUser postUser = new PostUser();
         postUser.setPassword("password");
         postUser.setUsername("userName");
         postUser.setEmail("email");
         when(userRepository.existsByEmail(any())).thenReturn(false);
 
-        var response = usersService.createUserAccount(postUser);
+        usersService.createUserAccount(postUser);
 
         verify(userRepository, times(1)).save(any(User.class));
-        assertTrue(response);
     }
 
     @Test
@@ -46,17 +46,27 @@ public class UsersServiceTest {
         postUser.setUsername("userName");
         postUser.setEmail("email");
         when(userRepository.existsByEmail(anyString())).thenReturn(true);
-        var response = usersService.createUserAccount(postUser);
 
-        verify(userRepository, times(0)).save(any(User.class));
-        assertFalse(response);
+        assertThrows(AlreadyExistant.class, () -> usersService.createUserAccount(postUser));
+    }
+
+    @Test
+    void createUserRunTimeExceptionKo() {
+        PostUser postUser = new PostUser();
+        postUser.setPassword("password");
+        postUser.setUsername("userName");
+        postUser.setEmail("email");
+        when(userRepository.existsByEmail(anyString())).thenReturn(false);
+        doThrow(RuntimeException.class).when(userRepository).save(any(User.class));
+
+        assertThrows(RuntimeException.class, () -> usersService.createUserAccount(postUser));
     }
 
     @Test
     void deleteUserOk() throws NotAllowed {
         User user = new User();
         user.setId(Integer.valueOf(USER_ID));
-        user.setAccountBalance((float) 0);
+        user.setAccountBalance(0.0);
         when(userRepository.getReferenceById(any())).thenReturn(user);
 
         usersService.deleteUser(USER_ID);
@@ -68,7 +78,7 @@ public class UsersServiceTest {
     void deleteUserKo() throws NotAllowed {
         User user = new User();
         user.setId(Integer.valueOf(USER_ID));
-        user.setAccountBalance((float) 25);
+        user.setAccountBalance(25.00);
         when(userRepository.getReferenceById(any())).thenReturn(user);
 
         assertThrows(NotAllowed.class, () -> usersService.deleteUser(USER_ID));

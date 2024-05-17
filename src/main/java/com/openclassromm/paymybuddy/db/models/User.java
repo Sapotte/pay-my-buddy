@@ -18,9 +18,9 @@ public class User {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Size(max = 20)
+    @Size(max = 300)
     @NotNull
-    @Column(name = "password", nullable = false, length = 20)
+    @Column(name = "password", nullable = false, length = 300)
     private String password;
 
     @Size(max = 100)
@@ -30,7 +30,7 @@ public class User {
 
     @NotNull
     @Column(name = "account_balance", nullable = false)
-    private Float accountBalance;
+    private Double accountBalance;
 
     @Size(max = 150)
     @NotNull
@@ -57,15 +57,15 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
-    public Float getAccountBalance() {
+    public Double getAccountBalance() {
         return accountBalance;
     }
 
-    public void setAccountBalance(Float accountBalance) {
+    public void setAccountBalance(Double accountBalance) {
         this.accountBalance = accountBalance;
     }
 

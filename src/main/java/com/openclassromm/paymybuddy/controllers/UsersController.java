@@ -2,6 +2,7 @@ package com.openclassromm.paymybuddy.controllers;
 
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
+import com.openclassromm.paymybuddy.errors.AlreadyExistant;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.UsersService;
 import org.apache.logging.log4j.LogManager;
@@ -28,12 +29,18 @@ public class UsersController {
      */
     @PostMapping
     public String addPerson(@ModelAttribute("postUser") PostUser user) {
-        var newUser = usersService.createUserAccount(user);
-        if(newUser) {
+        try {
+            usersService.createUserAccount(user);
             return "redirect:/login?success";
-        } else {
-            return "redirect:/login?alreadyExisted";
+        } catch (Exception e) {
+            if (e instanceof AlreadyExistant) {
+                return "redirect:/login?alreadyExisted";
+            } else {
+                return "redirect:/login?errorDatabase";
+            }
         }
+
+
     }
 
     @PreAuthorize("isAuthenticated()")

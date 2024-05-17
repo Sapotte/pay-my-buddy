@@ -2,21 +2,11 @@ package com.openclassromm.paymybuddy.controllers.dto;
 
 import java.time.LocalDate;
 
-public class InternTransactionsDto {
-    public String friend;
+public class ExternTransactionDto {
     public LocalDate date;
     public String type;
     public Double amount;
-    public String label;
-    public String status;
-
-    public String getFriend() {
-        return friend;
-    }
-
-    public void setFriend(String friend) {
-        this.friend = friend;
-    }
+    public String account;
 
     public LocalDate getDate() {
         return date;
@@ -42,19 +32,11 @@ public class InternTransactionsDto {
         this.amount = amount;
     }
 
-    public String getLabel() {
-        return label;
+    public String getAccount() {
+        return account;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setAccount(String account) {
+        this.account = account;
     }
 }

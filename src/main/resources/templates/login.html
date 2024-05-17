@@ -6,11 +6,14 @@
 <div th:replace="~{fragments :: header}"></div>
 <div class="container container30 border border-3 border-success p-20 text-center">
     <h2 class="text-center mb-3">Connectez-vous</h2>
-    <div class="text-success" th:if="${param.alreadyExisted}">
-        Votre compte existe déjà, veuillez vous identifier
+    <div class="text-error" th:if="${param.alreadyExisted}">
+        Your account already existed, please log in
+    </div>
+    <div class="text-error" th:if="${param.errorDatabase}">
+        An error occurred, please try again
     </div>
     <div class="text-success" th:if="${param.success}">
-        Votre compte a bien été créé, veuillez vous identifier
+        Your account has been created, please log in
     </div>
     <form th:action="@{/login}" method="post" >
         <div class="mb-4">

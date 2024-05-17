@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -29,19 +28,20 @@ public class InternTransaction {
     private String status;
 
     @NotNull
-    @Column(name = "amount", nullable = false, precision = 5, scale = 2)
-    private BigDecimal amount;
+    @Column(name = "amount", nullable = false)
+    private Double amount;
 
     @NotNull
-    @Column(name = "taxe", nullable = false, precision = 3)
-    private BigDecimal taxe;
+    @Column(name = "taxe", nullable = false)
+    private Double taxe;
 
     @NotNull
     @Column(name = "id_friend", nullable = false)
     private Integer idFriend;
 
-    @Size(max = 350)
-    @Column(name = "label", length = 350)
+    @Size(max = 1000)
+    @NotNull
+    @Column(name = "label", nullable = false, length = 1000)
     private String label;
 
     @NotNull
@@ -73,19 +73,19 @@ public class InternTransaction {
         this.status = status;
     }
 
-    public BigDecimal getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(BigDecimal amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    public BigDecimal getTaxe() {
+    public Double getTaxe() {
         return taxe;
     }
 
-    public void setTaxe(BigDecimal taxe) {
+    public void setTaxe(Double taxe) {
         this.taxe = taxe;
     }
 

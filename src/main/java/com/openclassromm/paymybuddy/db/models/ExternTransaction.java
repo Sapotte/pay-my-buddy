@@ -33,11 +33,11 @@ public class ExternTransaction {
 
     @NotNull
     @Column(name = "amount", nullable = false)
-    private Float amount;
+    private Double amount;
 
     @NotNull
     @Column(name = "taxe", nullable = false)
-    private Float taxe;
+    private Double taxe;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -76,19 +76,19 @@ public class ExternTransaction {
         this.type = type;
     }
 
-    public Float getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    public Float getTaxe() {
+    public Double getTaxe() {
         return taxe;
     }
 
-    public void setTaxe(Float taxe) {
+    public void setTaxe(Double taxe) {
         this.taxe = taxe;
     }
 

@@ -2,7 +2,7 @@ package com.openclassromm.paymybuddy.controllers.dto;
 
 public class PostInternTransaction {
     private Integer friend;
-    private Float amount;
+    private Double amount;
     private String label;
 
     public Integer getFriend() {
@@ -13,11 +13,11 @@ public class PostInternTransaction {
         this.friend = friend;
     }
 
-    public Float getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Float amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 

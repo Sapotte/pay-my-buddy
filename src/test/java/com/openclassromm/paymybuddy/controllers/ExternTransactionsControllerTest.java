@@ -36,7 +36,7 @@ public class ExternTransactionsControllerTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         postExternTransaction.setAccount("account");
-        postExternTransaction.setAmount(22.2F);
+        postExternTransaction.setAmount(22.2);
         postExternTransaction.setType('+');
         when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);

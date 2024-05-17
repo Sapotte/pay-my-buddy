@@ -8,6 +8,7 @@ import com.openclassromm.paymybuddy.db.repositories.InternTransactionRepository;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.mappers.InternTransactionsServiceMapperImpl;
+import com.openclassromm.paymybuddy.utils.Helpers;
 import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,23 +32,27 @@ public class InternTransactionsService {
     InternTransactionRepository internTransactionRepository;
     @Autowired
     UsersService usersService;
+    @Autowired
+    Helpers helpers;
     InternTransactionsServiceMapperImpl mapper = new InternTransactionsServiceMapperImpl();
     private final Logger LOGGER = LogManager.getLogger(InternTransactionsService.class);
 
     @Transactional
     public void saveTransaction(Integer userId, PostInternTransaction postInternTransaction) throws NotAllowed {
-        User user = userRepository.findById(userId).orElse(null);
-        usersService.checkIfAccountCanBeWithdraw(user.getAccountBalance(), postInternTransaction.getAmount());
+        Double taxe = Helpers.round(postInternTransaction.getAmount() * 0.05);
+
+        User user = userRepository.findById(userId).orElseThrow(NullPointerException::new);
+        usersService.checkIfAccountCanBeWithdraw(user.getAccountBalance(), postInternTransaction.getAmount() + taxe);
         try {
-            userRepository.decreaseAccountBalance(userId, postInternTransaction.getAmount());
+            userRepository.decreaseAccountBalance(userId, postInternTransaction.getAmount() + taxe);
             LOGGER.info("Account balance user decreased");
             userRepository.increaseAccountBalance(postInternTransaction.getFriend(), postInternTransaction.getAmount());
             LOGGER.info("Account balance user increased");
-            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), 5 / 100 * postInternTransaction.getAmount(), "OK"));
+            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), taxe, "OK"));
             LOGGER.info("Transaction added");
         } catch (RuntimeException e) {
             LOGGER.error(e.getMessage());
-            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), 5 / 100 * postInternTransaction.getAmount(), "ERR"));
+            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), taxe, "ERR"));
             LOGGER.info("Transaction added");
             throw e;
         }
@@ -66,13 +71,14 @@ public class InternTransactionsService {
             if (it.getIdUser().getId().equals(user.getId())) {
                 dto.setFriend(userRepository.findUsernameById(it.getIdFriend()));
                 dto.setType("-");
+                dto.setAmount((it.getAmount() + it.getTaxe()));
             } else {
                 dto.setFriend(it.getIdUser().getUsername());
                 dto.setType("+");
+                dto.setAmount(it.getAmount());
             }
             dto.setStatus(it.getStatus().equals("OK") ? "PASSED" : "CANCEL");
             dto.setDate(LocalDate.parse(it.getDate().format(DateTimeFormatter.ISO_DATE)));
-            dto.setAmount(it.getAmount().floatValue());
             dto.setLabel(it.getLabel());
             return dto;
         });

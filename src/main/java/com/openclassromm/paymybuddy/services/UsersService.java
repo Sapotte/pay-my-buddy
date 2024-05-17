@@ -3,6 +3,7 @@ package com.openclassromm.paymybuddy.services;
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
+import com.openclassromm.paymybuddy.errors.AlreadyExistant;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.mappers.UserServiceMapperImpl;
 import org.apache.logging.log4j.LogManager;
@@ -22,18 +23,21 @@ public class UsersService {
 
     UserServiceMapperImpl userServiceMapper = new UserServiceMapperImpl();
 
-    public Boolean createUserAccount(PostUser postUser) {
+    public void createUserAccount(PostUser postUser) throws AlreadyExistant {
         LOGGER.info("Check if account already exists");
         if(checkIfEmailExists(postUser.getEmail())) {
-            LOGGER.info("Account already exists");
-            return false;
+            throw new AlreadyExistant("Account already exists");
         } else {
             LOGGER.info("Creating user account");
             // Encode password
             postUser.setPassword(passwordEncoder.encode(postUser.getPassword()));
-            User user =  userServiceMapper.mapPostUserToUser(postUser, (float) 0);
-            userRepository.save(user);
-            return true;
+            User user = userServiceMapper.mapPostUserToUser(postUser, 0.00);
+            try {
+                userRepository.save(user);
+            } catch (Exception e) {
+                LOGGER.error("Error occurred while saving user: " + e.getMessage());
+                throw new RuntimeException("Error occurred while saving user", e);
+            }
         }
     }
 
@@ -61,7 +65,7 @@ public class UsersService {
         userRepository.updateUser(id, userName, password);
     }
 
-    public void checkIfAccountCanBeWithdraw(Float accountBalance, Float amount) throws NotAllowed {
+    public void checkIfAccountCanBeWithdraw(Double accountBalance, Double amount) throws NotAllowed {
         if (accountBalance < amount) {
             throw new NotAllowed("Not enough money in your account");
         }

@@ -38,7 +38,7 @@ public class InternTransactionsControllerTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         postInternTransaction.setFriend(2);
-        postInternTransaction.setAmount(22.2F);
+        postInternTransaction.setAmount(Double.valueOf(22.2));
         postInternTransaction.setLabel("label");
         when(securityContext.getAuthentication()).thenReturn(authentication);
         when(authentication.getName()).thenReturn(USER_ID);

@@ -10,13 +10,14 @@
     <form action="#" method="POST" th:action="@{/externTransactions}" th:object="${postExternTransaction}">
         <div class="mb-4">
             <label class="form-label" for="amount">Amount</label>
-            <input class="form-control" id="amount" name="amount" placeholder="Montant" required
+            <input class="form-control" id="amount" name="amount" placeholder="Amount" required
                    th:field="*{amount}"
                    type="text"/>
+            <span>+5% commission</span>
         </div>
         <div class="mb-4">
             <label class="form-label" for="account">Account</label>
-            <input class="form-control" id="account" name="account" placeholder="Le compte" required
+            <input class="form-control" id="account" name="account" placeholder="The account" required
                    th:field="*{account}"
                    type="text"/>
         </div>
@@ -31,7 +32,7 @@
             An error occured, please try again
         </div>
     </form>
-    <a class="mb-4 center text-center" th:href="@{/account/0}"> Return to account </a>
+    <a class="mb-4 center text-center" th:href="@{/account}"> Return to account </a>
 </div>
 </body>
 </html>
