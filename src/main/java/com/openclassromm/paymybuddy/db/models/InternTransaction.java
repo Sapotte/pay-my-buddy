@@ -22,10 +22,9 @@ public class InternTransaction {
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
-    @Size(max = 2)
     @NotNull
-    @Column(name = "status", nullable = false, length = 2)
-    private String status;
+    @Column(name = "is_completed", nullable = false)
+    private boolean isCompleted;
 
     @NotNull
     @Column(name = "amount", nullable = false)
@@ -65,12 +64,12 @@ public class InternTransaction {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean getIsCompleted() {
+        return isCompleted;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setIsCompleted(boolean status) {
+        this.isCompleted = status;
     }
 
     public Double getAmount() {

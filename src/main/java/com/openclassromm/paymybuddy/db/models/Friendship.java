@@ -2,7 +2,6 @@ package com.openclassromm.paymybuddy.db.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,10 +15,9 @@ public class Friendship {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Size(max = 3)
     @NotNull
-    @Column(name = "status", nullable = false, length = 3)
-    private String status;
+    @Column(name = "is_active", nullable = false, length = 3)
+    private boolean isActive;
 
     @NotNull
     @Column(name = "id_friend", nullable = false)
@@ -38,12 +36,12 @@ public class Friendship {
         this.id = id;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean getIsActive() {
+        return isActive;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setIsActive(boolean status) {
+        this.isActive = status;
     }
 
     public Integer getIdFriend() {

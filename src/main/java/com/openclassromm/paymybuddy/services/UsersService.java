@@ -2,10 +2,12 @@ package com.openclassromm.paymybuddy.services;
 
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
+import com.openclassromm.paymybuddy.db.repositories.FriendshipRepository;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.errors.AlreadyExistant;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.mappers.UserServiceMapperImpl;
+import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,9 @@ public class UsersService {
     private final Logger LOGGER = LogManager.getLogger(UsersService.class);
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private FriendshipRepository friendshipRepository;
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -41,13 +46,21 @@ public class UsersService {
         }
     }
 
-
+    @Transactional
     public void deleteUser(String username) throws NotAllowed {
         User user = userRepository.getReferenceById(Integer.valueOf(username));
         if (user.getAccountBalance() != 0) {
             throw new NotAllowed("Account not null");
         }
-        userRepository.delete(user);
+        try {
+            userRepository.delete(user);
+            // Set all the deleted user's friendship at not active
+            friendshipRepository.updateFriendshipStatus(user);
+        } catch (Exception e) {
+            LOGGER.error("Error occurred while deleting user: " + e.getMessage());
+            throw new RuntimeException("Error occurred while deleting user", e);
+        }
+
     }
 
     /**

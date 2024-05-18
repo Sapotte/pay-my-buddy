@@ -18,6 +18,7 @@ public interface InternTransactionsServiceMapper {
     @Mapping(target = "taxe", source = "taxe")
     @Mapping(target = "idFriend", source = "postInternTransaction.friend")
     @Mapping(target = "label", source = "postInternTransaction.label")
-    @Mapping(target = "status", source = "status")
-    InternTransaction map(User user, PostInternTransaction postInternTransaction, Date date, Double taxe, String status);
+    @Mapping(target = "isCompleted", source = "isCompleted")
+    InternTransaction map(User user, PostInternTransaction postInternTransaction, Date date, Double taxe, boolean isCompleted);
 }
+

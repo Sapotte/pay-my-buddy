@@ -32,8 +32,15 @@ public class SpringSecurityConfig extends SecurityConfigurerAdapter<DefaultSecur
                 .addFilterBefore(new LoginRedirectionFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/users/**").permitAll()
-                        .requestMatchers("/css/**", "/login/**", "/signup/**", "/swagger-ui/**").permitAll()
-                        .requestMatchers("/account/**", "/addFriend", "/friendships/**", "/externTransaction/**", "/externTransactions/**", "/internTransactions/**").authenticated())
+                        .requestMatchers("/css/**", "/login/**", "/signup/**").permitAll()
+                        .requestMatchers("/account/**",
+                                "/addFriend",
+                                "/friendships/**",
+                                "/externTransaction/**",
+                                "/externTransactions/**",
+                                "/internTransactions/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/users").authenticated()
+                )
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(form -> form
                         .loginPage("/login")

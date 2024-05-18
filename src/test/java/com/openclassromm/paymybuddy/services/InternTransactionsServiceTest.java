@@ -50,12 +50,12 @@ public class InternTransactionsServiceTest {
         mockUser.setAccountBalance(200.0);
         PostInternTransaction postInternTransaction = new PostInternTransaction();
         postInternTransaction.setFriend(1);
-        postInternTransaction.setAmount(Double.valueOf(100.00));
+        postInternTransaction.setAmount(100.00);
         when(userRepository.findById(Integer.valueOf(USER_ID))).thenReturn(Optional.of(mockUser));
 
         internTransactionsService.saveTransaction(Integer.valueOf(USER_ID), postInternTransaction);
 
-        verify(userRepository, Mockito.times(1)).decreaseAccountBalance(Integer.valueOf(USER_ID), 105.00);
+        verify(userRepository, Mockito.times(1)).decreaseAccountBalance(Integer.valueOf(USER_ID), 100.50);
         verify(userRepository, Mockito.times(1)).increaseAccountBalance(postInternTransaction.getFriend(), 100.00);
         verify(internTransactionRepository, Mockito.times(1)).save(any(InternTransaction.class));
     }
@@ -71,7 +71,7 @@ public class InternTransactionsServiceTest {
         postInternTransaction.setAmount(Double.valueOf(100.00));
         when(userRepository.findById(Integer.valueOf(USER_ID))).thenReturn(Optional.of(mockUser));
 
-        doThrow(new RuntimeException("Database error")).when(userRepository).decreaseAccountBalance(Integer.valueOf(USER_ID), postInternTransaction.getAmount() + 5);
+        doThrow(new RuntimeException("Database error")).when(userRepository).decreaseAccountBalance(Integer.valueOf(USER_ID), postInternTransaction.getAmount() + 0.5);
 
         RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
             internTransactionsService.saveTransaction(Integer.valueOf(USER_ID), postInternTransaction);

@@ -39,7 +39,7 @@ public class InternTransactionsService {
 
     @Transactional
     public void saveTransaction(Integer userId, PostInternTransaction postInternTransaction) throws NotAllowed {
-        Double taxe = Helpers.round(postInternTransaction.getAmount() * 0.05);
+        Double taxe = Helpers.round(postInternTransaction.getAmount() * 0.5 / 100);
 
         User user = userRepository.findById(userId).orElseThrow(NullPointerException::new);
         usersService.checkIfAccountCanBeWithdraw(user.getAccountBalance(), postInternTransaction.getAmount() + taxe);
@@ -48,11 +48,11 @@ public class InternTransactionsService {
             LOGGER.info("Account balance user decreased");
             userRepository.increaseAccountBalance(postInternTransaction.getFriend(), postInternTransaction.getAmount());
             LOGGER.info("Account balance user increased");
-            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), taxe, "OK"));
+            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), taxe, true));
             LOGGER.info("Transaction added");
         } catch (RuntimeException e) {
             LOGGER.error(e.getMessage());
-            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), taxe, "ERR"));
+            internTransactionRepository.save(mapper.map(user, postInternTransaction, new Date(), taxe, false));
             LOGGER.info("Transaction added");
             throw e;
         }
@@ -77,7 +77,7 @@ public class InternTransactionsService {
                 dto.setType("+");
                 dto.setAmount(it.getAmount());
             }
-            dto.setStatus(it.getStatus().equals("OK") ? "PASSED" : "CANCEL");
+            dto.setStatus(it.getIsCompleted() ? "PASSED" : "CANCELED");
             dto.setDate(LocalDate.parse(it.getDate().format(DateTimeFormatter.ISO_DATE)));
             dto.setLabel(it.getLabel());
             return dto;

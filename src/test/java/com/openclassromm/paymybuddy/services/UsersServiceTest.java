@@ -2,6 +2,7 @@ package com.openclassromm.paymybuddy.services;
 
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
+import com.openclassromm.paymybuddy.db.repositories.FriendshipRepository;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.errors.AlreadyExistant;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
@@ -23,6 +24,8 @@ public class UsersServiceTest {
     UsersService usersService;
     @Mock
     UserRepository userRepository;
+    @Mock
+    FriendshipRepository friendshipRepository;
     @Mock
     BCryptPasswordEncoder bCryptPasswordEncoder;
 

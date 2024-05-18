@@ -25,7 +25,7 @@ public class FriendshipService {
             Friendship friendship = new Friendship();
             friendship.setIdUser(user);
             friendship.setIdFriend(friend.get().getId());
-            friendship.setStatus("A");
+            friendship.setIsActive(true);
             friendshipRepository.save(friendship);
         } else {
             throw new IllegalArgumentException("Invalid friend");
@@ -35,7 +35,7 @@ public class FriendshipService {
     public List<Pair<Integer, String>> getFriends(Integer userId) {
         var friends = friendshipRepository.findFriendshipsByUserId(userId);
         if (!friends.isEmpty()) {
-            return friends.stream().map(friend -> userId.equals(friend.getIdUser().getId()) && friend.getStatus().equals("A") ?
+            return friends.stream().map(friend -> userId.equals(friend.getIdUser().getId()) && friend.getIsActive() ?
                             Pair.of(friend.getIdFriend(), userRepository.findUsernameById(friend.getIdFriend())) :
                             Pair.of(friend.getIdUser().getId(), friend.getIdUser().getUsername()))
                     .toList();

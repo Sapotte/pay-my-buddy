@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="~{fragments :: common-head(~{::title})}">
+<head th:insert="~{fragments :: common-head(${title})}">
 </head>
 <body>
-<div th:replace="~{fragments :: header}"></div>
+<div th:include="fragments :: header"></div>
 <div class="container container30 border border-3 border-success p-20 text-center">
     <h2 class="text-center mb-3">Connectez-vous</h2>
     <div class="text-error" th:if="${param.alreadyExisted}">
@@ -11,6 +11,9 @@
     </div>
     <div class="text-error" th:if="${param.errorDatabase}">
         An error occurred, please try again
+    </div>
+    <div class="text-success" th:if="${param.userDeleted}">
+        Your account has been deleted
     </div>
     <div class="text-success" th:if="${param.success}">
         Your account has been created, please log in

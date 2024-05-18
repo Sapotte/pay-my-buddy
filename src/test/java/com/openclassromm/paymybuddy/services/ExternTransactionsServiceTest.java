@@ -40,7 +40,7 @@ public class ExternTransactionsServiceTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(this); // Initialisation des mocks
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class ExternTransactionsServiceTest {
 
         externTransactionsService.saveTransaction(Integer.valueOf(USER_ID), postExternTransaction);
 
-        verify(userRepository, Mockito.times(1)).decreaseAccountBalance(Integer.valueOf(USER_ID), 105.0d);
+        verify(userRepository, Mockito.times(1)).decreaseAccountBalance(Integer.valueOf(USER_ID), 100.0);
         verify(externTransactionRepository, Mockito.times(1)).save(any(ExternTransaction.class));
     }
 

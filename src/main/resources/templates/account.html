@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="~{fragments :: common-head(~{::title})}"></head>
+<head th:insert="~{fragments :: common-head(${title})}"></head>
 <body>
 <div class="container">
     <div th:replace="~{fragments :: header}"></div>
@@ -11,6 +11,9 @@
     </div>
     <div class="error m-auto text-center" th:if="${param.errorUnknown}">
         An error occurred, please try again
+    </div>
+    <div class="error m-auto text-center" th:if="${param.accountNotEmpty}">
+        Please emptied your account before deleting
     </div>
     <div class="error m-auto text-center" th:if="${param.notEnough}">
         Not enough in your account

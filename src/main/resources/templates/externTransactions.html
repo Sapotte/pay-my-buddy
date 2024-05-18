@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="~{fragments :: common-head(~{::title})}">
+<head th:insert="~{fragments :: common-head(${title})}">
 </head>
 <body>
-<div th:replace="~{fragments :: header}"></div>
+<div th:include="fragments :: header"></div>
 <div class="container container30 border border-3 border-success">
     <h2 class="text-center color-success">Inscrivez-vous</h2>
     <!--/*@thymesVar id="postExternTransaction" type="PostExternTransaction"*/-->

@@ -41,21 +41,20 @@ public class ExternTransactionsService {
     @Transactional
     public void saveTransaction(Integer userId, PostExternTransaction postExternTransaction) throws NotAllowed {
         User user = userRepository.findById(userId).orElse(null);
-        Double taxe = Helpers.round(postExternTransaction.getAmount() * 0.05);
+        Double taxe = Helpers.round(postExternTransaction.getAmount() * 0.5 / 100);
         try {
             if ('+' == postExternTransaction.getType()) {
                 userRepository.increaseAccountBalance(userId, postExternTransaction.getAmount());
                 LOGGER.info("Account balance increased");
             } else if ('-' == postExternTransaction.getType()) {
-                usersService.checkIfAccountCanBeWithdraw(user.getAccountBalance(), postExternTransaction.getAmount() + taxe);
-                userRepository.decreaseAccountBalance(userId, postExternTransaction.getAmount() + taxe);
+                userRepository.decreaseAccountBalance(userId, postExternTransaction.getAmount());
                 LOGGER.info("Account balance decreased");
             } else {
                 throw new RuntimeException();
             }
             externTransactionRepository.save(mapper.map(user, postExternTransaction, new Date(), taxe));
             LOGGER.info("Transaction added");
-        } catch (RuntimeException | NotAllowed e) {
+        } catch (RuntimeException e) {
             throw e;
         }
     }

@@ -21,7 +21,10 @@
             <form method="post" th:action="@{/logout}" th:csrf>
                 <input class="btn btn-primary btn-header" type="submit" value="Logout"/>
             </form>
-            <a class="btn btn-link btn-header" th:href="@{/deleteUser}">Delete your account</a>
+            <form th:action="@{/users}" th:csrf th:method="post">
+                <input name="_method" type="hidden" value="DELETE"/>
+                <input class="btn btn-link btn-header" type="submit" value="Delete your account"/>
+            </form>
         </div>
         <h1 class=" w-90 text-center" id="mainTitle">Pay My Buddy</h1>
     </header>
