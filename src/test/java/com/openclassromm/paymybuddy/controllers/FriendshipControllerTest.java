@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.test.context.support.WithMockUser;
 
 import java.util.LinkedList;
 
@@ -41,12 +40,11 @@ public class FriendshipControllerTest {
         MockitoAnnotations.openMocks(this);
 
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
     }
 
     @Test
-    @WithMockUser(username = USER_ID)
     void createFriendshipOk() {
 
         var result = controller.createFriendship(USER_EMAIL);
@@ -71,21 +69,21 @@ public class FriendshipControllerTest {
         friendList.add(Pair.of(1, "user1@ops.com"));
         friendList.add(Pair.of(2, "user2@ops.com"));
 
-        when(service.getFriends(Integer.valueOf(USER_ID))).thenReturn(friendList);
+        when(service.getFriends(USER_ID)).thenReturn(friendList);
 
         var result = controller.getFriendsByUserId();
 
         assertEquals(friendList, result);
-        verify(service, times(1)).getFriends(Integer.valueOf(USER_ID));
+        verify(service, times(1)).getFriends(USER_ID);
     }
 
     @Test
     void getFriendsByUserIdKo() {
-        when(service.getFriends(Integer.valueOf(USER_ID))).thenThrow(new RuntimeException("Unexpected Error"));
+        when(service.getFriends(USER_ID)).thenThrow(new RuntimeException("Unexpected Error"));
 
         var result = controller.getFriendsByUserId();
 
         assertNull(result);
-        verify(service, times(1)).getFriends(Integer.valueOf(USER_ID));
+        verify(service, times(1)).getFriends(USER_ID);
     }
 }

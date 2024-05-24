@@ -41,14 +41,14 @@ public class InternTransactionsControllerTest {
         postInternTransaction.setAmount(Double.valueOf(22.2));
         postInternTransaction.setLabel("label");
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
     }
 
     @Test
     void postInternTransactionOk() throws NotAllowed {
 
-        Mockito.when(authentication.getName()).thenReturn(USER_ID);
+        Mockito.when(authentication.getName()).thenReturn(USER_ID.toString());
 
         var result = controller.postInternTransaction(postInternTransaction);
 
@@ -58,7 +58,7 @@ public class InternTransactionsControllerTest {
 
     @Test
     void postInternTransactionNotAllowedException() throws NotAllowed {
-        Mockito.when(authentication.getName()).thenReturn(USER_ID);
+        Mockito.when(authentication.getName()).thenReturn(USER_ID.toString());
         Mockito.doThrow(new NotAllowed("Not enough money in your account")).when(service).saveTransaction(any(Integer.class), any(PostInternTransaction.class));
 
         var result = controller.postInternTransaction(postInternTransaction);
@@ -69,7 +69,7 @@ public class InternTransactionsControllerTest {
 
     @Test
     void postInternTransactionUnknownErrorException() throws NotAllowed {
-        Mockito.when(authentication.getName()).thenReturn(USER_ID);
+        Mockito.when(authentication.getName()).thenReturn(USER_ID.toString());
         Mockito.doThrow(new RuntimeException()).when(service).saveTransaction(any(Integer.class), any(PostInternTransaction.class));
 
         var result = controller.postInternTransaction(postInternTransaction);

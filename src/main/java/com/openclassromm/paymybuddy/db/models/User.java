@@ -32,6 +32,10 @@ public class User {
     @Column(name = "account_balance", nullable = false)
     private Double accountBalance;
 
+    @NotNull
+    @Column(name = "is_enabled", nullable = false)
+    private boolean isEnabled;
+
     @Size(max = 150)
     @NotNull
     @Column(name = "email", nullable = false, length = 150)
@@ -75,5 +79,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean active) {
+        isEnabled = active;
     }
 }

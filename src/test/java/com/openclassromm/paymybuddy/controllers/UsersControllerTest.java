@@ -12,7 +12,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.test.context.support.WithMockUser;
 
 import static com.openclassromm.paymybuddy.Constants.User.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -62,10 +61,9 @@ public class UsersControllerTest {
     }
 
     @Test
-    @WithMockUser(username = USER_ID)
     void shouldDeleteUserAndRedirectLogin() throws Exception {
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
 
         String response = usersController.deleteUser();
@@ -74,13 +72,12 @@ public class UsersControllerTest {
     }
 
     @Test
-    @WithMockUser(username = USER_ID)
     void shouldReturnAccountNotEmptyWhenNotAllowedExceptionOccurs() throws Exception {
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
 
-        doThrow(NotAllowed.class).when(usersService).deleteUser(USER_ID);
+        doThrow(NotAllowed.class).when(usersService).deleteUser(USER_ID.toString());
 
         String response = usersController.deleteUser();
 
@@ -88,13 +85,12 @@ public class UsersControllerTest {
     }
 
     @Test
-    @WithMockUser(username = USER_ID)
     void shouldReturnErrorDeletedWhenExceptionOccurs() throws Exception {
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
 
-        doThrow(new RuntimeException()).when(usersService).deleteUser(USER_ID);
+        doThrow(new RuntimeException()).when(usersService).deleteUser(USER_ID.toString());
 
         String response = usersController.deleteUser();
 
@@ -102,10 +98,9 @@ public class UsersControllerTest {
     }
 
     @Test
-    @WithMockUser(username = USER_ID)
     void updateUserOk() {
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
 
         PostUser user = new PostUser();
@@ -115,6 +110,6 @@ public class UsersControllerTest {
 
         usersController.updateUser(user);
 
-        verify(usersService, times(1)).updateUser(Integer.valueOf(USER_ID), USER_NAME, USER_PASSWORD);
+        verify(usersService, times(1)).updateUser(USER_ID, USER_NAME, USER_PASSWORD);
     }
 }

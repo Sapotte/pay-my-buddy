@@ -102,7 +102,7 @@ public class ViewControllerTest {
 
         setupSecurityContext();
         when(securityContext.getAuthentication()).thenReturn(authentication);
-        when(authentication.getName()).thenReturn(USER_ID);
+        when(authentication.getName()).thenReturn(USER_ID.toString());
         SecurityContextHolder.setContext(securityContext);
 
         when(userRepository.findById(any(Integer.class))).thenReturn(Optional.of(new User()));

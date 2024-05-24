@@ -2,6 +2,7 @@ package com.openclassromm.paymybuddy.services;
 
 import com.openclassromm.paymybuddy.controllers.dto.PostUser;
 import com.openclassromm.paymybuddy.db.models.User;
+import com.openclassromm.paymybuddy.db.repositories.ExternTransactionRepository;
 import com.openclassromm.paymybuddy.db.repositories.FriendshipRepository;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.errors.AlreadyExistant;
@@ -27,6 +28,8 @@ public class UsersService {
     private BCryptPasswordEncoder passwordEncoder;
 
     UserServiceMapperImpl userServiceMapper = new UserServiceMapperImpl();
+    @Autowired
+    private ExternTransactionRepository externTransactionRepository;
 
     public void createUserAccount(PostUser postUser) throws AlreadyExistant {
         LOGGER.info("Check if account already exists");
@@ -48,14 +51,16 @@ public class UsersService {
 
     @Transactional
     public void deleteUser(String username) throws NotAllowed {
-        User user = userRepository.getReferenceById(Integer.valueOf(username));
+        User user = userRepository.findById(Integer.valueOf(username)).orElseThrow(NullPointerException::new);
         if (user.getAccountBalance() != 0) {
             throw new NotAllowed("Account not null");
         }
         try {
-            userRepository.delete(user);
+
             // Set all the deleted user's friendship at not active
-            friendshipRepository.updateFriendshipStatus(user);
+            friendshipRepository.updateFriendshipStatus(user.getId());
+            externTransactionRepository.deleteByIdUser(user.getId());
+            userRepository.disabledUser(user.getId(), "deletedUser", "0");
         } catch (Exception e) {
             LOGGER.error("Error occurred while deleting user: " + e.getMessage());
             throw new RuntimeException("Error occurred while deleting user", e);

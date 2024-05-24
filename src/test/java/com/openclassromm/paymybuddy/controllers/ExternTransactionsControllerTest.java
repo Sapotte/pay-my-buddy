@@ -44,7 +44,7 @@ public class ExternTransactionsControllerTest {
 
     @Test
     void postExternTRansactionOk() throws NotAllowed {
-        Mockito.when(authentication.getName()).thenReturn(USER_ID);
+        Mockito.when(authentication.getName()).thenReturn(USER_ID.toString());
 
         var result = controller.postExternTransaction(postExternTransaction);
 
@@ -54,7 +54,7 @@ public class ExternTransactionsControllerTest {
 
     @Test
     void postExternTRansactionKo() throws NotAllowed {
-        Mockito.when(authentication.getName()).thenReturn(USER_ID);
+        Mockito.when(authentication.getName()).thenReturn(USER_ID.toString());
         Mockito.doThrow(new NotAllowed("Not enough money in your account")).when(service).saveTransaction(any(), any());
 
         var result = controller.postExternTransaction(postExternTransaction);
@@ -65,7 +65,7 @@ public class ExternTransactionsControllerTest {
 
     @Test
     void postExternTransactionWhenExceptionThrown() throws NotAllowed {
-        Mockito.when(authentication.getName()).thenReturn(USER_ID);
+        Mockito.when(authentication.getName()).thenReturn(USER_ID.toString());
         Mockito.doThrow(new RuntimeException()).when(service).saveTransaction(any(), any());
 
         var result = controller.postExternTransaction(postExternTransaction);

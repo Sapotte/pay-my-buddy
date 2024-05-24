@@ -16,7 +16,7 @@ public class Friendship {
     private Integer id;
 
     @NotNull
-    @Column(name = "is_active", nullable = false, length = 3)
+    @Column(name = "is_active", nullable = false)
     private boolean isActive;
 
     @NotNull

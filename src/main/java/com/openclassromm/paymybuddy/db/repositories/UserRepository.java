@@ -36,4 +36,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Modifying
     @Query("UPDATE User u SET u.accountBalance = u.accountBalance - :amount WHERE u.id = :userId")
     void decreaseAccountBalance(@Param("userId") Integer userId, @Param("amount") Double amount);
+
+    @Modifying
+    @Query("UPDATE User u SET u.username = :deletedUser, u.email = :number, u.password = :number, u.isEnabled = false WHERE u.id = :id")
+    void disabledUser(@Param("id") Integer id, @Param("deletedUser") String deletedUser, @Param("number") String number);
 }

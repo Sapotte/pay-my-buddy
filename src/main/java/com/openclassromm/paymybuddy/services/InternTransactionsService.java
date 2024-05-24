@@ -69,7 +69,7 @@ public class InternTransactionsService {
         return internTransactionList.map(it -> {
             InternTransactionsDto dto = new InternTransactionsDto();
             if (it.getIdUser().getId().equals(user.getId())) {
-                dto.setFriend(userRepository.findUsernameById(it.getIdFriend()));
+                dto.setFriend(userRepository.findUsernameById(it.getIdFriend()).describeConstable().orElseThrow());
                 dto.setType("-");
                 dto.setAmount((it.getAmount() + it.getTaxe()));
             } else {
