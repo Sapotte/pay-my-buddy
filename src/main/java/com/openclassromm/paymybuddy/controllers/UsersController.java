@@ -43,6 +43,15 @@ public class UsersController {
 
     }
 
+    /**
+     * Deletes the authenticated user's account.
+     *
+     * @return The URL to redirect the user after deleting the account.
+     * Possible redirect URLs:
+     * - "/login?userDeleted" if the account is successfully deleted.
+     * - "/account?accountNotEmpty" if the user's account balance is not zero.
+     * - "/account?errorDeleted" if an error occurs during the deletion process.
+     */
     @PreAuthorize("isAuthenticated()")
     @DeleteMapping
     public String deleteUser() {
@@ -50,6 +59,7 @@ public class UsersController {
         String username = authentication.getName();
         try {
             usersService.deleteUser(username);
+            authentication.setAuthenticated(false);
             return "redirect:/login?userDeleted";
         } catch (Exception e) {
             LOGGER.error(e);
@@ -60,6 +70,11 @@ public class UsersController {
         }
     }
 
+    /**
+     * Updates the authenticated user's information.
+     *
+     * @param user The updated user information.
+     */
     @PreAuthorize("isAuthenticated()")
     @PutMapping
     public void updateUser(@ModelAttribute("putUser") PostUser user) {

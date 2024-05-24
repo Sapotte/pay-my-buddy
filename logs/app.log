@@ -2377,3 +2377,550 @@ Caused by: org.hibernate.query.sqm.PathElementException: Could not resolve attri
 2024-05-24 11:45:00.232 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-05-24 11:45:00.238 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
 2024-05-24 11:45:00.268 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-05-24 11:55:22.200 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 21964 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 11:55:22.211 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 11:55:22.277 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-24 11:55:22.277 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-24 11:55:23.428 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 11:55:23.857 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 419 ms. Found 4 JPA repository interfaces.
+2024-05-24 11:55:25.382 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-24 11:55:25.419 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-24 11:55:25.423 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-24 11:55:25.423 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-24 11:55:25.572 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-24 11:55:25.573 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3292 ms
+2024-05-24 11:55:25.907 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 11:55:26.058 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 11:55:26.163 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 11:55:26.928 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 11:55:27.025 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-24 11:55:27.469 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6de5abd0
+2024-05-24 11:55:27.475 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-24 11:55:27.628 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 11:55:28.858 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 11:55:28.945 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 11:55:29.263 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 11:55:30.174 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 11:55:30.557 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6346238e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@64da9596, org.springframework.security.web.context.SecurityContextHolderFilter@71e3e39d, org.springframework.security.web.header.HeaderWriterFilter@37967f61, org.springframework.web.filter.CorsFilter@1633956c, org.springframework.security.web.csrf.CsrfFilter@2dfcb839, org.springframework.security.web.authentication.logout.LogoutFilter@7e1d37d, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@410d5722, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7720a776, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2ad5b9c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23810396, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2c003b0a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@138546de, org.springframework.security.web.access.ExceptionTranslationFilter@13e198cd, org.springframework.security.web.access.intercept.AuthorizationFilter@203c934d]
+2024-05-24 11:55:30.958 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-24 11:55:31.011 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-24 11:55:31.021 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 9.228 seconds (process running for 10.81)
+2024-05-24 11:55:31.039 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 11:55:31.043 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-24 11:55:31.052 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-24 11:57:59.700 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 20912 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 11:57:59.712 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 11:57:59.770 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-24 11:57:59.771 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-24 11:58:00.862 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 11:58:01.232 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 358 ms. Found 4 JPA repository interfaces.
+2024-05-24 11:58:02.798 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-24 11:58:02.834 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-24 11:58:02.838 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-24 11:58:02.838 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-24 11:58:02.974 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-24 11:58:02.980 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3204 ms
+2024-05-24 11:58:03.328 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 11:58:03.491 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 11:58:03.595 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 11:58:04.327 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 11:58:04.419 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-24 11:58:04.876 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@227e5c29
+2024-05-24 11:58:04.884 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-24 11:58:05.032 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 11:58:07.542 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 11:58:07.751 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 11:58:08.409 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 11:58:10.310 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 11:58:11.122 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@b937232, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a7d222, org.springframework.security.web.context.SecurityContextHolderFilter@5109ae79, org.springframework.security.web.header.HeaderWriterFilter@3883bc80, org.springframework.web.filter.CorsFilter@503aa55f, org.springframework.security.web.csrf.CsrfFilter@cf938c9, org.springframework.security.web.authentication.logout.LogoutFilter@2f8aae40, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@12708335, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@48932bf2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2185676d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@665ba2e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a1461bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26261ab, org.springframework.security.web.access.ExceptionTranslationFilter@6d5e6186, org.springframework.security.web.access.intercept.AuthorizationFilter@68cff072]
+2024-05-24 11:58:11.991 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-24 11:58:12.049 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-05-24 11:58:12.110 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-24 11:58:12.129 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 12.867 seconds (process running for 21.939)
+2024-05-24 11:58:26.861 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-24 11:58:26.862 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-24 11:58:26.863 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-05-24 11:58:27.047 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - Sign up
+2024-05-24 11:58:28.547 [http-nio-8080-exec-4] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-4][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:28.549 [http-nio-8080-exec-4] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-4][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:30.114 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:30.114 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:30.188 [http-nio-8080-exec-8] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-8][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:30.188 [http-nio-8080-exec-8] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-8][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:54.096 [http-nio-8080-exec-9] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@22eb8847]
+2024-05-24 11:58:54.097 [http-nio-8080-exec-9] WARN  org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder - Encoded password does not look like BCrypt
+2024-05-24 11:58:54.115 [http-nio-8080-exec-10] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-10][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:54.115 [http-nio-8080-exec-10] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-10][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:54.187 [http-nio-8080-exec-3] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-3][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:58:54.187 [http-nio-8080-exec-3] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-3][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:59:07.127 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:59:07.127 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:59:07.198 [http-nio-8080-exec-8] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-8][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:59:07.198 [http-nio-8080-exec-8] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-8][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 11:59:23.857 [http-nio-8080-exec-9] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@4e8ef561]
+2024-05-24 11:59:24.064 [http-nio-8080-exec-10] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 0
+2024-05-24 11:59:45.918 [http-nio-8080-exec-3] ERROR com.openclassromm.paymybuddy.controllers.UsersController - com.openclassromm.paymybuddy.errors.NotAllowed: Account not null
+2024-05-24 11:59:45.940 [http-nio-8080-exec-4] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 0
+2024-05-24 11:59:53.126 [http-nio-8080-exec-7] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-7][externTransactions] Deprecated attribute {th:include,data-th-include} found in template externTransactions, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 11:59:53.127 [http-nio-8080-exec-7] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-7][externTransactions] Deprecated unwrapped fragment expression "fragments :: header" found in template externTransactions, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:00:03.767 [http-nio-8080-exec-10] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Account balance decreased
+2024-05-24 12:00:03.843 [http-nio-8080-exec-10] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Transaction added
+2024-05-24 12:00:03.864 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-24 12:00:03.864 [http-nio-8080-exec-1] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.controllers.dto.ExternTransactionDto@8a7b276
+2024-05-24 12:00:40.938 [http-nio-8080-exec-4] WARN  org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2024-05-24 12:00:40.938 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicata du champ '0' pour la clef 'user_AK'
+2024-05-24 12:00:40.953 [http-nio-8080-exec-4] ERROR com.openclassromm.paymybuddy.services.UsersService - Error occurred while deleting user: JDBC exception executing SQL [update user set username=?,email=?,password=?,is_enabled=0 where id=?] [Duplicata du champ '0' pour la clef 'user_AK'] [n/a]; SQL [n/a]; constraint [null]
+2024-05-24 12:01:34.047 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55s615ms217µs600ns).
+2024-05-24 12:01:34.050 [http-nio-8080-exec-4] ERROR com.openclassromm.paymybuddy.controllers.UsersController - java.lang.RuntimeException: Error occurred while deleting user
+2024-05-24 12:01:36.036 [http-nio-8080-exec-5] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-24 12:01:36.036 [http-nio-8080-exec-5] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.controllers.dto.ExternTransactionDto@74252697
+2024-05-24 12:24:29.752 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:24:29.758 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-24 12:24:29.765 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-24 12:24:39.708 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 19452 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 12:24:39.717 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 12:24:39.780 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-24 12:24:39.780 [restartedMain] INFO  org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-24 12:24:40.770 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 12:24:41.072 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 291 ms. Found 4 JPA repository interfaces.
+2024-05-24 12:24:42.500 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-24 12:24:42.532 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:24:42.535 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-24 12:24:42.536 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-24 12:24:42.664 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-24 12:24:42.664 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2883 ms
+2024-05-24 12:24:42.973 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 12:24:43.116 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 12:24:43.215 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 12:24:43.894 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 12:24:43.976 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-24 12:24:44.391 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@235fb20b
+2024-05-24 12:24:44.398 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-24 12:24:44.531 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 12:24:46.807 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 12:24:46.984 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:24:47.567 [restartedMain] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 12:24:49.249 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 12:24:49.994 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@76ed1d42, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@454f55e2, org.springframework.security.web.context.SecurityContextHolderFilter@2b47a76d, org.springframework.security.web.header.HeaderWriterFilter@2e1f1745, org.springframework.web.filter.CorsFilter@42dc40f3, org.springframework.security.web.csrf.CsrfFilter@3b75d30c, org.springframework.security.web.authentication.logout.LogoutFilter@69d6feff, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@3365a41a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@110edd04, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@77d1bb47, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19adeee3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a85f5cd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2dfcb839, org.springframework.security.web.access.ExceptionTranslationFilter@7649139e, org.springframework.security.web.access.intercept.AuthorizationFilter@6894c005]
+2024-05-24 12:24:50.808 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-24 12:24:50.859 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:24:50.917 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-24 12:24:50.933 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 11.584 seconds (process running for 12.918)
+2024-05-24 12:25:00.642 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-24 12:25:00.642 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-05-24 12:25:00.644 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-05-24 12:25:01.564 [http-nio-8080-exec-2] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-2][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:01.564 [http-nio-8080-exec-2] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-2][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:01.908 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:01.908 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:12.733 [http-nio-8080-exec-6] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@d6d0f41]
+2024-05-24 12:25:12.948 [http-nio-8080-exec-7] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-24 12:25:12.949 [http-nio-8080-exec-7] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.controllers.dto.ExternTransactionDto@6c740354
+2024-05-24 12:25:28.961 [http-nio-8080-exec-1] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-1][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:28.962 [http-nio-8080-exec-1] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-1][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:42.925 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:42.926 [http-nio-8080-exec-5] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][http-nio-8080-exec-5][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:25:54.043 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 37 class path changes (0 additions, 36 deletions, 1 modification)
+2024-05-24 12:25:54.058 [Thread-5] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:25:54.068 [Thread-5] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:25:54.082 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-24 12:25:54.100 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-24 12:25:54.366 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 19452 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 12:25:54.367 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 12:25:54.754 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 12:25:54.755 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-05-24 12:25:54.985 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-24 12:25:54.992 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:25:54.994 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-24 12:25:54.994 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-24 12:25:55.031 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-24 12:25:55.032 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 662 ms
+2024-05-24 12:25:55.116 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 12:25:55.120 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 12:25:55.125 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 12:25:55.128 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-05-24 12:25:55.135 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e30e724
+2024-05-24 12:25:55.136 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-05-24 12:25:55.137 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 12:25:55.155 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 12:25:55.155 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:25:55.258 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 12:25:55.587 [restartedMain] WARN  org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 11ae5909-53b6-44c7-a01f-3d392db33652
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-05-24 12:25:55.622 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7aa3963b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a3828b0, org.springframework.security.web.context.SecurityContextHolderFilter@306780a8, org.springframework.security.web.header.HeaderWriterFilter@4c735ba1, org.springframework.web.filter.CorsFilter@87126da, org.springframework.security.web.csrf.CsrfFilter@4cad9066, org.springframework.security.web.authentication.logout.LogoutFilter@49f4c112, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@36ae84a1, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5151969e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1f7604ac, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@40cafb5b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10691862, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7296b89, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@79024b37, org.springframework.security.web.access.ExceptionTranslationFilter@3e653650, org.springframework.security.web.access.intercept.AuthorizationFilter@593d32c5]
+2024-05-24 12:25:55.653 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-24 12:25:55.670 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:25:55.675 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-24 12:25:55.680 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 1.414 seconds (process running for 77.666)
+2024-05-24 12:25:55.695 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration matched:
+      - AllNestedConditions 2 matched 0 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) did not find any beans; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+      - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+   UserDetailsServiceAutoConfiguration matched:
+      - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+      - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+      - @ConditionalOnBean (types: org.springframework.security.config.annotation.ObjectPostProcessor; SearchStrategy: all) found bean 'objectPostProcessor'; @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) did not find any beans (OnBeanCondition)
+
+
+Negative matches:
+-----------------
+
+    None
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-05-24 12:25:57.137 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 36 class path changes (36 additions, 0 deletions, 0 modifications)
+2024-05-24 12:25:57.140 [Thread-7] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:25:57.145 [Thread-7] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:25:57.146 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-05-24 12:25:57.151 [Thread-7] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-05-24 12:25:57.292 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 19452 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 12:25:57.293 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 12:25:57.708 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 12:25:57.814 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 105 ms. Found 4 JPA repository interfaces.
+2024-05-24 12:25:57.979 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-24 12:25:57.980 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:25:57.981 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-24 12:25:57.981 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-24 12:25:58.015 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-24 12:25:58.015 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 719 ms
+2024-05-24 12:25:58.063 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 12:25:58.065 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 12:25:58.071 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 12:25:58.072 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2024-05-24 12:25:58.076 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2706fbbb
+2024-05-24 12:25:58.077 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2024-05-24 12:25:58.078 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 12:25:58.227 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 12:25:58.249 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:25:58.651 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 12:25:58.757 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11986e3c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@44465bdb, org.springframework.security.web.context.SecurityContextHolderFilter@1a1673c3, org.springframework.security.web.header.HeaderWriterFilter@3aac4a41, org.springframework.web.filter.CorsFilter@1dc2d7bc, org.springframework.security.web.csrf.CsrfFilter@6f97e9ff, org.springframework.security.web.authentication.logout.LogoutFilter@2c08502d, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@170457aa, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@10f347e1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7e94f926, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a9ea96f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5d8f1482, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@453f32f8, org.springframework.security.web.access.ExceptionTranslationFilter@192c29c, org.springframework.security.web.access.intercept.AuthorizationFilter@36ec7ce8]
+2024-05-24 12:25:58.872 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-24 12:25:58.887 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-05-24 12:25:58.892 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-24 12:25:58.897 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 1.664 seconds (process running for 80.882)
+2024-05-24 12:25:58.901 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener - Condition evaluation delta:
+
+
+==========================
+CONDITION EVALUATION DELTA
+==========================
+
+
+Positive matches:
+-----------------
+
+    None
+
+
+Negative matches:
+-----------------
+
+   SpringBootWebSecurityConfiguration.SecurityFilterChainConfiguration:
+      Did not match:
+         - AllNestedConditions 1 matched 1 did not; NestedCondition on DefaultWebSecurityCondition.Beans @ConditionalOnMissingBean (types: org.springframework.security.web.SecurityFilterChain; SearchStrategy: all) found beans of type 'org.springframework.security.web.SecurityFilterChain' filterChain; NestedCondition on DefaultWebSecurityCondition.Classes @ConditionalOnClass found required classes 'org.springframework.security.web.SecurityFilterChain', 'org.springframework.security.config.annotation.web.builders.HttpSecurity' (DefaultWebSecurityCondition)
+
+   SpringBootWebSecurityConfiguration.WebSecurityEnablerConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (names: springSecurityFilterChain; SearchStrategy: all) found beans named springSecurityFilterChain (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.config.annotation.web.configuration.EnableWebSecurity' (OnClassCondition)
+
+   UserDetailsServiceAutoConfiguration:
+      Did not match:
+         - @ConditionalOnMissingBean (types: org.springframework.security.authentication.AuthenticationManager,org.springframework.security.authentication.AuthenticationProvider,org.springframework.security.core.userdetails.UserDetailsService,org.springframework.security.authentication.AuthenticationManagerResolver,org.springframework.security.oauth2.jwt.JwtDecoder; SearchStrategy: all) found beans of type 'org.springframework.security.authentication.AuthenticationManager' authenticationManager and found beans of type 'org.springframework.security.core.userdetails.UserDetailsService' customUserDetailsService (OnBeanCondition)
+      Matched:
+         - @ConditionalOnClass found required class 'org.springframework.security.authentication.AuthenticationManager' (OnClassCondition)
+         - AnyNestedCondition 1 matched 2 did not; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.PasswordConfigured @ConditionalOnProperty (spring.security.user.password) did not find property 'password'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.NameConfigured @ConditionalOnProperty (spring.security.user.name) did not find property 'name'; NestedCondition on UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured.MissingAlternative @ConditionalOnMissingClass did not find unwanted classes 'org.springframework.security.oauth2.client.registration.ClientRegistrationRepository', 'org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector', 'org.springframework.security.saml2.provider.service.registration.RelyingPartyRegistrationRepository' (UserDetailsServiceAutoConfiguration.MissingAlternativeOrUserPropertiesConfigured)
+
+
+Exclusions:
+-----------
+
+    None
+
+
+Unconditional classes:
+----------------------
+
+    None
+
+
+
+2024-05-24 12:26:02.627 [main] ERROR com.openclassromm.paymybuddy.controllers.ExternTransactionsController - com.openclassromm.paymybuddy.errors.NotAllowed: Not enough money in your account
+2024-05-24 12:26:02.708 [main] ERROR com.openclassromm.paymybuddy.controllers.ExternTransactionsController - java.lang.RuntimeException
+2024-05-24 12:26:02.947 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.controllers.FriendshipControllerTest]: FriendshipControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:03.213 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.controllers.FriendshipControllerTest
+2024-05-24 12:26:03.616 [main] INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
+2024-05-24 12:26:04.143 [main] INFO  com.openclassromm.paymybuddy.controllers.FriendshipControllerTest - Starting FriendshipControllerTest using Java 21.0.1 with PID 15544 (started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 12:26:04.149 [main] INFO  com.openclassromm.paymybuddy.controllers.FriendshipControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 12:26:05.574 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 12:26:05.677 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 4 JPA repository interfaces.
+2024-05-24 12:26:06.565 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 12:26:06.688 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 12:26:06.751 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 12:26:06.988 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 12:26:07.031 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-24 12:26:07.331 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4c07464c
+2024-05-24 12:26:07.334 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-24 12:26:07.443 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 12:26:08.745 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 12:26:08.850 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:26:09.276 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 12:26:10.561 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 12:26:11.203 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16fbed47, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18f3feaf, org.springframework.security.web.context.SecurityContextHolderFilter@56f679c4, org.springframework.security.web.header.HeaderWriterFilter@5062bb4, org.springframework.web.filter.CorsFilter@63aca3c9, org.springframework.security.web.csrf.CsrfFilter@2dc4c29d, org.springframework.security.web.authentication.logout.LogoutFilter@6ba82a7b, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@3a390761, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3e929e63, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6e182c75, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3f817722, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@42339fcb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@73e154b4, org.springframework.security.web.access.ExceptionTranslationFilter@3d468558, org.springframework.security.web.access.intercept.AuthorizationFilter@103bbd22]
+2024-05-24 12:26:11.928 [main] INFO  com.openclassromm.paymybuddy.controllers.FriendshipControllerTest - Started FriendshipControllerTest in 8.341 seconds (process running for 13.935)
+2024-05-24 12:26:12.020 [main] ERROR com.openclassromm.paymybuddy.controllers.FriendshipController - Invalid friend
+2024-05-24 12:26:12.052 [main] ERROR com.openclassromm.paymybuddy.controllers.FriendshipController - Unexpected Error
+2024-05-24 12:26:12.076 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.controllers.InternTransactionsControllerTest]: InternTransactionsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:12.080 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.controllers.InternTransactionsControllerTest
+2024-05-24 12:26:12.147 [main] ERROR com.openclassromm.paymybuddy.controllers.InternTransactionsController - com.openclassromm.paymybuddy.errors.NotAllowed: Not enough money in your account
+2024-05-24 12:26:12.159 [main] ERROR com.openclassromm.paymybuddy.controllers.InternTransactionsController - java.lang.RuntimeException
+2024-05-24 12:26:12.235 [main] ERROR com.openclassromm.paymybuddy.controllers.UsersController - java.lang.RuntimeException
+2024-05-24 12:26:12.253 [main] ERROR com.openclassromm.paymybuddy.controllers.UsersController - com.openclassromm.paymybuddy.errors.NotAllowed
+2024-05-24 12:26:12.279 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.controllers.ViewControllerTest]: ViewControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:12.295 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.controllers.ViewControllerTest
+2024-05-24 12:26:12.299 [main] INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
+2024-05-24 12:26:12.331 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewControllerTest - Starting ViewControllerTest using Java 21.0.1 with PID 15544 (started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 12:26:12.332 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 12:26:12.671 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 12:26:12.699 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 4 JPA repository interfaces.
+2024-05-24 12:26:12.996 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 12:26:12.999 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 12:26:13.003 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 12:26:13.004 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-05-24 12:26:13.012 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@48a276e8
+2024-05-24 12:26:13.012 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-05-24 12:26:13.014 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 12:26:13.117 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 12:26:13.146 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:26:13.255 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 12:26:13.341 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@38778314, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52c4953, org.springframework.security.web.context.SecurityContextHolderFilter@76ac98db, org.springframework.security.web.header.HeaderWriterFilter@187f37dd, org.springframework.web.filter.CorsFilter@317334f5, org.springframework.security.web.csrf.CsrfFilter@46812738, org.springframework.security.web.authentication.logout.LogoutFilter@4be4a158, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@6ff23d14, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@231fb80f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4d1f3e95, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@39dbd9d1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@38bc99f5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b196cdd, org.springframework.security.web.access.ExceptionTranslationFilter@7fefd13e, org.springframework.security.web.access.intercept.AuthorizationFilter@70b9bbe2]
+2024-05-24 12:26:13.519 [main] INFO  org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-05-24 12:26:13.520 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-05-24 12:26:13.521 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+2024-05-24 12:26:13.530 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewControllerTest - Started ViewControllerTest in 1.231 seconds (process running for 15.538)
+2024-05-24 12:26:13.604 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewController - Sign up
+2024-05-24 12:26:14.167 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-24 12:26:14.168 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.controllers.dto.ExternTransactionDto@2ed04a2b
+2024-05-24 12:26:14.243 [main] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][main][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 12:26:14.243 [main] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][main][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:26:14.266 [main] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][main][externTransactions] Deprecated attribute {th:include,data-th-include} found in template externTransactions, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 12:26:14.267 [main] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][main][externTransactions] Deprecated unwrapped fragment expression "fragments :: header" found in template externTransactions, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 12:26:14.284 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.PayMyBuddyApplicationTests]: PayMyBuddyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:14.293 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.PayMyBuddyApplicationTests
+2024-05-24 12:26:14.308 [main] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@1aebb9a9]
+2024-05-24 12:26:14.321 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.services.ExternTransactionsServiceTest]: ExternTransactionsServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:14.334 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.services.ExternTransactionsServiceTest
+2024-05-24 12:26:14.460 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Account balance decreased
+2024-05-24 12:26:14.460 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Transaction added
+2024-05-24 12:26:14.467 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Account balance increased
+2024-05-24 12:26:14.467 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Transaction added
+2024-05-24 12:26:14.482 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.services.FriendshipServiceTest]: FriendshipServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:14.484 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.services.FriendshipServiceTest
+2024-05-24 12:26:14.604 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.services.InternTransactionsServiceTest]: InternTransactionsServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 12:26:14.606 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.services.InternTransactionsServiceTest
+2024-05-24 12:26:14.720 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Account balance user decreased
+2024-05-24 12:26:14.720 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Account balance user increased
+2024-05-24 12:26:14.721 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Transaction added
+2024-05-24 12:26:14.729 [main] ERROR com.openclassromm.paymybuddy.services.InternTransactionsService - Database error
+2024-05-24 12:26:14.730 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Transaction added
+2024-05-24 12:26:14.801 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-24 12:26:14.802 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Creating user account
+2024-05-24 12:26:14.803 [main] ERROR com.openclassromm.paymybuddy.services.UsersService - Error occurred while saving user: null
+2024-05-24 12:26:14.850 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-24 12:26:14.853 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-24 12:26:14.853 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Creating user account
+2024-05-24 12:26:14.874 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:26:14.877 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-24 12:26:15.053 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-24 12:26:15.057 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 12:26:15.058 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-05-24 12:26:15.060 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-05-24 14:10:35.488 [HikariPool-3 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1h24m7s117ms680µs500ns).
+2024-05-24 14:11:52.980 [File Watcher] INFO  org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 37 class path changes (0 additions, 36 deletions, 1 modification)
+2024-05-24 14:11:52.983 [Thread-11] INFO  org.apache.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2024-05-24 14:11:52.994 [Thread-11] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:11:52.994 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2024-05-24 14:11:52.994 [Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2024-05-24 14:11:53.181 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 19452 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 14:11:53.181 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 14:11:53.562 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 14:11:53.563 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-05-24 14:11:53.654 [restartedMain] WARN  org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+2024-05-24 14:11:53.670 [restartedMain] INFO  org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-05-24 14:11:53.745 [restartedMain] ERROR org.springframework.boot.SpringApplication - Application run failed
+java.lang.NullPointerException: Cannot read field "generatedClass" because "data" is null
+	at org.springframework.cglib.proxy.Enhancer.nextInstance(Enhancer.java:783) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.cglib.core.AbstractClassGenerator.create(AbstractClassGenerator.java:321) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.cglib.proxy.Enhancer.createHelper(Enhancer.java:562) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.cglib.proxy.Enhancer.createClass(Enhancer.java:407) ~[spring-core-6.1.6.jar:6.1.6]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.createClass(ConfigurationClassEnhancer.java:138) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer.enhance(ConfigurationClassEnhancer.java:109) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.enhanceConfigurationClasses(ConfigurationClassPostProcessor.java:533) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanFactory(ConfigurationClassPostProcessor.java:310) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:153) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606) ~[spring-context-6.1.6.jar:6.1.6]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) [spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) [spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) [spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) [spring-boot-3.2.5.jar:3.2.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) [spring-boot-3.2.5.jar:3.2.5]
+	at com.openclassromm.paymybuddy.PayMyBuddyApplication.main(PayMyBuddyApplication.java:12) [classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) [spring-boot-devtools-3.2.5.jar:3.2.5]
+2024-05-24 14:11:56.344 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Starting PayMyBuddyApplication using Java 21.0.2 with PID 19452 (C:\Users\sarah\DepotGit\pay-my-buddy\target\classes started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 14:11:56.344 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 14:11:56.792 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 14:11:56.884 [restartedMain] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 4 JPA repository interfaces.
+2024-05-24 14:11:57.091 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-05-24 14:11:57.093 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-05-24 14:11:57.093 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-05-24 14:11:57.093 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-05-24 14:11:57.135 [restartedMain] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-05-24 14:11:57.135 [restartedMain] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 780 ms
+2024-05-24 14:11:57.203 [restartedMain] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 14:11:57.203 [restartedMain] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 14:11:57.203 [restartedMain] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 14:11:57.203 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2024-05-24 14:11:57.220 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1f54b632
+2024-05-24 14:11:57.220 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2024-05-24 14:11:57.220 [restartedMain] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 14:11:57.340 [restartedMain] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 14:11:57.350 [restartedMain] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:11:57.854 [restartedMain] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 14:11:58.008 [restartedMain] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@64b523b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78bdad3f, org.springframework.security.web.context.SecurityContextHolderFilter@1b5193ef, org.springframework.security.web.header.HeaderWriterFilter@4e118bf6, org.springframework.web.filter.CorsFilter@6209e093, org.springframework.security.web.csrf.CsrfFilter@3d2849b8, org.springframework.security.web.authentication.logout.LogoutFilter@6d6cdb50, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@57f8fee9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@cb73e6d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@780c5457, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64cb6cb4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a8fbef, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@bfeb4a7, org.springframework.security.web.access.ExceptionTranslationFilter@151ed3d9, org.springframework.security.web.access.intercept.AuthorizationFilter@73b1b72a]
+2024-05-24 14:11:58.232 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-05-24 14:11:58.251 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-05-24 14:11:58.256 [restartedMain] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2024-05-24 14:11:58.262 [restartedMain] INFO  com.openclassromm.paymybuddy.PayMyBuddyApplication - Started PayMyBuddyApplication in 1.969 seconds (process running for 6440.369)
+2024-05-24 14:11:58.262 [restartedMain] INFO  org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2024-05-24 14:12:02.391 [main] ERROR com.openclassromm.paymybuddy.controllers.ExternTransactionsController - com.openclassromm.paymybuddy.errors.NotAllowed: Not enough money in your account
+2024-05-24 14:12:02.470 [main] ERROR com.openclassromm.paymybuddy.controllers.ExternTransactionsController - java.lang.RuntimeException
+2024-05-24 14:12:02.737 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.controllers.FriendshipControllerTest]: FriendshipControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:03.020 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.controllers.FriendshipControllerTest
+2024-05-24 14:12:03.415 [main] INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
+2024-05-24 14:12:03.870 [main] INFO  com.openclassromm.paymybuddy.controllers.FriendshipControllerTest - Starting FriendshipControllerTest using Java 21.0.1 with PID 19440 (started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 14:12:03.870 [main] INFO  com.openclassromm.paymybuddy.controllers.FriendshipControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 14:12:05.437 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 14:12:05.551 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 4 JPA repository interfaces.
+2024-05-24 14:12:06.460 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 14:12:06.568 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-24 14:12:06.631 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 14:12:06.897 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 14:12:06.944 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-05-24 14:12:07.243 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@514332a5
+2024-05-24 14:12:07.258 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-05-24 14:12:07.354 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 14:12:08.631 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 14:12:08.726 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:12:09.133 [main] INFO  org.springframework.data.jpa.repository.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-24 14:12:10.429 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 14:12:11.036 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3a390761, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73e154b4, org.springframework.security.web.context.SecurityContextHolderFilter@276ee610, org.springframework.security.web.header.HeaderWriterFilter@6299b325, org.springframework.web.filter.CorsFilter@7460cae1, org.springframework.security.web.csrf.CsrfFilter@75b7b498, org.springframework.security.web.authentication.logout.LogoutFilter@730e60b, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@72549d4f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7cf0ea82, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@56bb07b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3c4d270e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62de3a8b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@248e6b, org.springframework.security.web.access.ExceptionTranslationFilter@2e0a68b9, org.springframework.security.web.access.intercept.AuthorizationFilter@5e427c7a]
+2024-05-24 14:12:11.712 [main] INFO  com.openclassromm.paymybuddy.controllers.FriendshipControllerTest - Started FriendshipControllerTest in 8.329 seconds (process running for 14.588)
+2024-05-24 14:12:11.807 [main] ERROR com.openclassromm.paymybuddy.controllers.FriendshipController - Invalid friend
+2024-05-24 14:12:11.822 [main] ERROR com.openclassromm.paymybuddy.controllers.FriendshipController - Unexpected Error
+2024-05-24 14:12:11.857 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.controllers.InternTransactionsControllerTest]: InternTransactionsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:11.859 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.controllers.InternTransactionsControllerTest
+2024-05-24 14:12:11.916 [main] ERROR com.openclassromm.paymybuddy.controllers.InternTransactionsController - com.openclassromm.paymybuddy.errors.NotAllowed: Not enough money in your account
+2024-05-24 14:12:11.934 [main] ERROR com.openclassromm.paymybuddy.controllers.InternTransactionsController - java.lang.RuntimeException
+2024-05-24 14:12:11.997 [main] ERROR com.openclassromm.paymybuddy.controllers.UsersController - java.lang.RuntimeException
+2024-05-24 14:12:12.017 [main] ERROR com.openclassromm.paymybuddy.controllers.UsersController - com.openclassromm.paymybuddy.errors.NotAllowed
+2024-05-24 14:12:12.046 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.controllers.ViewControllerTest]: ViewControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:12.060 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.controllers.ViewControllerTest
+2024-05-24 14:12:12.060 [main] INFO  org.springframework.boot.devtools.restart.RestartApplicationListener - Restart disabled due to context in which it is running
+2024-05-24 14:12:12.090 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewControllerTest - Starting ViewControllerTest using Java 21.0.1 with PID 19440 (started by sarah in C:\Users\sarah\DepotGit\pay-my-buddy)
+2024-05-24 14:12:12.090 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-05-24 14:12:12.390 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-24 14:12:12.422 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 4 JPA repository interfaces.
+2024-05-24 14:12:12.709 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-24 14:12:12.721 [main] INFO  org.hibernate.cache.internal.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2024-05-24 14:12:12.721 [main] INFO  org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-24 14:12:12.721 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2024-05-24 14:12:12.721 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@95f67fc
+2024-05-24 14:12:12.721 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2024-05-24 14:12:12.736 [main] WARN  org.hibernate.dialect.Dialect - HHH000511: The 5.7.36 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-05-24 14:12:12.833 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-24 14:12:12.865 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:12:12.963 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-24 14:12:13.058 [main] INFO  org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3cadd2d8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e72efcf, org.springframework.security.web.context.SecurityContextHolderFilter@6b196cdd, org.springframework.security.web.header.HeaderWriterFilter@6ff23d14, org.springframework.web.filter.CorsFilter@50eb43c, org.springframework.security.web.csrf.CsrfFilter@52c4953, org.springframework.security.web.authentication.logout.LogoutFilter@7a5fecca, com.openclassromm.paymybuddy.configuration.LoginRedirectionFilter@5feea5b5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f26b383, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6a1a3bb6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c18d63c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24e49fd6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d078782, org.springframework.security.web.access.ExceptionTranslationFilter@317334f5, org.springframework.security.web.access.intercept.AuthorizationFilter@30265f75]
+2024-05-24 14:12:13.214 [main] INFO  org.springframework.boot.test.mock.web.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2024-05-24 14:12:13.214 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+2024-05-24 14:12:13.214 [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+2024-05-24 14:12:13.229 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewControllerTest - Started ViewControllerTest in 1.169 seconds (process running for 16.111)
+2024-05-24 14:12:13.307 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewController - Sign up
+2024-05-24 14:12:13.953 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewController - 2
+2024-05-24 14:12:13.953 [main] INFO  com.openclassromm.paymybuddy.controllers.ViewController - com.openclassromm.paymybuddy.controllers.dto.ExternTransactionDto@1f9e17e4
+2024-05-24 14:12:14.049 [main] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][main][login] Deprecated attribute {th:include,data-th-include} found in template login, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 14:12:14.049 [main] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][main][login] Deprecated unwrapped fragment expression "fragments :: header" found in template login, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 14:12:14.081 [main] WARN  org.thymeleaf.standard.processor.StandardIncludeTagProcessor - [THYMELEAF][main][externTransactions] Deprecated attribute {th:include,data-th-include} found in template externTransactions, line 6, col 6. Please use {th:insert,data-th-insert} instead, this deprecated attribute will be removed in future versions of Thymeleaf.
+2024-05-24 14:12:14.082 [main] WARN  org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor - [THYMELEAF][main][externTransactions] Deprecated unwrapped fragment expression "fragments :: header" found in template externTransactions, line 6, col 6. Please use the complete syntax of fragment expressions instead ("~{fragments :: header}"). The old, unwrapped syntax for fragment expressions will be removed in future versions of Thymeleaf.
+2024-05-24 14:12:14.094 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.PayMyBuddyApplicationTests]: PayMyBuddyApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:14.103 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.PayMyBuddyApplicationTests
+2024-05-24 14:12:14.111 [main] INFO  com.openclassromm.paymybuddy.services.CustomUserDetailsService - Found user: Optional[com.openclassromm.paymybuddy.db.models.User@c41cb44]
+2024-05-24 14:12:14.126 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.services.ExternTransactionsServiceTest]: ExternTransactionsServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:14.141 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.services.ExternTransactionsServiceTest
+2024-05-24 14:12:14.269 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Account balance decreased
+2024-05-24 14:12:14.269 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Transaction added
+2024-05-24 14:12:14.269 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Account balance increased
+2024-05-24 14:12:14.269 [main] INFO  com.openclassromm.paymybuddy.services.ExternTransactionsService - Transaction added
+2024-05-24 14:12:14.285 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.services.FriendshipServiceTest]: FriendshipServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:14.296 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.services.FriendshipServiceTest
+2024-05-24 14:12:14.425 [main] INFO  org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.openclassromm.paymybuddy.services.InternTransactionsServiceTest]: InternTransactionsServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-05-24 14:12:14.425 [main] INFO  org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.openclassromm.paymybuddy.PayMyBuddyApplication for test class com.openclassromm.paymybuddy.services.InternTransactionsServiceTest
+2024-05-24 14:12:14.538 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Account balance user decreased
+2024-05-24 14:12:14.538 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Account balance user increased
+2024-05-24 14:12:14.538 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Transaction added
+2024-05-24 14:12:14.538 [main] ERROR com.openclassromm.paymybuddy.services.InternTransactionsService - Database error
+2024-05-24 14:12:14.538 [main] INFO  com.openclassromm.paymybuddy.services.InternTransactionsService - Transaction added
+2024-05-24 14:12:14.618 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-24 14:12:14.618 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Creating user account
+2024-05-24 14:12:14.618 [main] ERROR com.openclassromm.paymybuddy.services.UsersService - Error occurred while saving user: null
+2024-05-24 14:12:14.631 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-24 14:12:14.631 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Check if account already exists
+2024-05-24 14:12:14.631 [main] INFO  com.openclassromm.paymybuddy.services.UsersService - Creating user account
+2024-05-24 14:12:14.662 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:12:14.662 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-05-24 14:12:14.831 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-05-24 14:12:14.831 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:12:14.831 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2024-05-24 14:12:14.831 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2024-05-24 14:13:23.318 [SpringApplicationShutdownHook] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-24 14:13:23.318 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+2024-05-24 14:13:23.318 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.

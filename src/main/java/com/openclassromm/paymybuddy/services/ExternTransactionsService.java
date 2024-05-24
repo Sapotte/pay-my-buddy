@@ -38,6 +38,13 @@ public class ExternTransactionsService {
 
     private final ExternTransactionServiceMapperImpl mapper = new ExternTransactionServiceMapperImpl();
 
+    /**
+     * Saves a transaction made by a user.
+     *
+     * @param userId                The ID of the user making the transaction
+     * @param postExternTransaction The transaction information to be saved
+     * @throws NotAllowed If the transaction is not allowed
+     */
     @Transactional
     public void saveTransaction(Integer userId, PostExternTransaction postExternTransaction) throws NotAllowed {
         User user = userRepository.findById(userId).orElse(null);
@@ -59,6 +66,13 @@ public class ExternTransactionsService {
         }
     }
 
+    /**
+     * Retrieves a page of ExternTransactionDto objects based on the specified page number and user.
+     *
+     * @param page The page number to retrieve. Must be a non-negative integer.
+     * @param user The user object.
+     * @return A Page object containing ExternTransactionDto objects.
+     */
     public Page<ExternTransactionDto> getExternTransactionsById(Integer page, User user) {
         if (page == null || page < 0) {
             page = 0;

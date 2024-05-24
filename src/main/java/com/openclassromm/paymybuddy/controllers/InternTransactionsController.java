@@ -19,6 +19,13 @@ public class InternTransactionsController {
     InternTransactionsService internTransactionsService;
     private final Logger LOGGER = LogManager.getLogger(InternTransactionsController.class);
 
+    /**
+     * Posts an intern transaction.
+     *
+     * @param postInternTransaction The intern transaction to be posted.
+     * @return A string representing the redirect URL after the transaction is posted. Returns "redirect:/account?notEnough" if the transaction is not allowed due to insufficient
+     * funds, or "redirect:/account?errorUnknown" if an unknown error occurs. Returns "redirect:/account" if the transaction is successfully posted.
+     */
     @PostMapping
     public String postInternTransaction(PostInternTransaction postInternTransaction) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

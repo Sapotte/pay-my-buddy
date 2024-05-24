@@ -22,6 +22,15 @@ public class ExternTransactionsController {
     @Autowired
     ExternTransactionsService externTransactionsService;
 
+    /**
+     * Saves a transaction made by an authenticated user.
+     *
+     * @param postExternTransaction The transaction information to be saved.
+     * @return The URL to redirect to after saving the transaction.
+     * Redirects to "/account" if the transaction is saved successfully.
+     * Redirects to "/account?notEnough" if the user does not have enough balance to perform the transaction.
+     * Redirects to "/account?errorUnknown" if an unknown error occurs while saving the transaction.
+     */
     @PreAuthorize("isAuthenticated()")
     @PostMapping
     public String postExternTransaction(@ModelAttribute("postExternTransaction") PostExternTransaction postExternTransaction) {

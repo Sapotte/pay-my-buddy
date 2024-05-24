@@ -17,7 +17,6 @@
 <div th:fragment="header">
     <header>
         <div class="d-flex flex-row justify-content-end" sec:authorize="isAuthenticated()">
-            <a class="btn btn-secondary btn-header" th:href="@{/updateUser}">Update your account</a>
             <form method="post" th:action="@{/logout}" th:csrf>
                 <input class="btn btn-primary btn-header" type="submit" value="Logout"/>
             </form>

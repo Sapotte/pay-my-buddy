@@ -23,6 +23,18 @@ public class FriendshipController {
     @Autowired
     FriendshipService friendshipService;
 
+    /**
+     * Creates a new friendship between the currently authenticated user and the specified user.
+     *
+     * @param userEmail the email of the user to befriend
+     * @return a string representing the redirection URL
+     * @return a string representing the redirection URL. If the friendship is created successfully, the user will be redirected to "/account". If an error occurs, the user will be
+     * redirected to "/account?error".
+     * @throws Exception if an error occurs while creating the friendship
+     * @PreAuthorize("isAuthenticated()")
+     * @PostMapping
+     * @ModelAttribute("userEmail") String userEmail the email of the user to befriend
+     */
     @PreAuthorize("isAuthenticated()")
     @PostMapping
     public String createFriendship(@ModelAttribute("userEmail") String userEmail) {
@@ -36,6 +48,16 @@ public class FriendshipController {
         }
     }
 
+    /**
+     * Retrieves the friends of the user identified by the user ID.
+     *
+     * This method requires the user to be authenticated.
+     *
+     * @return a list of pairs where each pair consists of an integer representing the friend's ID and
+     *         a string representing the friend's username
+     * @throws NullPointerException if the user ID is null
+     * @throws NumberFormatException if the user ID is not a valid number format
+     */
     @PreAuthorize("isAuthenticated()")
     @GetMapping
     public List<Pair<Integer, String>> getFriendsByUserId() {

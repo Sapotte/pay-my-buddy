@@ -17,6 +17,14 @@ public class FriendshipService {
     @Autowired
     UserRepository userRepository;
 
+    /**
+     * Creates a new friendship between the specified user and the friend with the given email.
+     *
+     * @param fromUser the ID of the user who initiates the friendship
+     * @param toUser   the email of the friend to be added
+     * @throws IllegalArgumentException if the friend with the given email does not exist
+     * @precondition the user must be fully authenticated
+     */
     @PreAuthorize("isFullyAuthenticated()")
     public void createFriendship(Integer fromUser, String toUser) {
         var user = userRepository.findById(fromUser).orElseThrow();
@@ -32,6 +40,13 @@ public class FriendshipService {
         }
     }
 
+    /**
+     * Retrieves the friends of the user identified by the user ID.
+     *
+     * @param userId the ID of the user
+     * @return a list of pairs where each pair consists of an integer representing the friend's ID and
+     * a string representing the friend's username, or null if the user has no friends
+     */
     public List<Pair<Integer, String>> getFriends(Integer userId) {
         var friends = friendshipRepository.findFriendshipsByUserId(userId);
         if (!friends.isEmpty()) {

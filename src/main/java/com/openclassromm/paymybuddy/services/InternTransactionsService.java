@@ -37,6 +37,13 @@ public class InternTransactionsService {
     InternTransactionsServiceMapperImpl mapper = new InternTransactionsServiceMapperImpl();
     private final Logger LOGGER = LogManager.getLogger(InternTransactionsService.class);
 
+    /**
+     * Saves a transaction for a user.
+     *
+     * @param userId                the ID of the user
+     * @param postInternTransaction the transaction details
+     * @throws NotAllowed if the user's account balance is insufficient for the transaction amount
+     */
     @Transactional
     public void saveTransaction(Integer userId, PostInternTransaction postInternTransaction) throws NotAllowed {
         Double taxe = Helpers.round(postInternTransaction.getAmount() * 0.5 / 100);
@@ -59,6 +66,13 @@ public class InternTransactionsService {
 
     }
 
+    /**
+     * Retrieves a page of InternTransactionsDto objects for a given page number and user.
+     *
+     * @param page the page number to retrieve (starting from 0)
+     * @param user the user for whom to retrieve the transactions
+     * @return a Page of InternTransactionsDto objects
+     */
     @PreAuthorize("isAuthenticated()")
     public Page<InternTransactionsDto> getInternTransactions(Integer page, User user) {
         if (page == null || page < 0) {

@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class UsersService {
     private final Logger LOGGER = LogManager.getLogger(UsersService.class);
@@ -31,6 +33,12 @@ public class UsersService {
     @Autowired
     private ExternTransactionRepository externTransactionRepository;
 
+    /**
+     * Creates a user account with the given information.
+     *
+     * @param postUser The user information to create the account.
+     * @throws AlreadyExistant If an account with the same email already exists.
+     */
     public void createUserAccount(PostUser postUser) throws AlreadyExistant {
         LOGGER.info("Check if account already exists");
         if(checkIfEmailExists(postUser.getEmail())) {
@@ -49,6 +57,13 @@ public class UsersService {
         }
     }
 
+    /**
+     * Deletes the user with the given username.
+     *
+     * @param username The username of the user to delete.
+     * @throws NotAllowed       if the user's account balance is not zero.
+     * @throws RuntimeException if an error occurs while deleting the user.
+     */
     @Transactional
     public void deleteUser(String username) throws NotAllowed {
         User user = userRepository.findById(Integer.valueOf(username)).orElseThrow(NullPointerException::new);
@@ -60,7 +75,7 @@ public class UsersService {
             // Set all the deleted user's friendship at not active
             friendshipRepository.updateFriendshipStatus(user.getId());
             externTransactionRepository.deleteByIdUser(user.getId());
-            userRepository.disabledUser(user.getId(), "deletedUser", "0");
+            userRepository.disabledUser(user.getId(), "deletedUser", UUID.randomUUID().toString());
         } catch (Exception e) {
             LOGGER.error("Error occurred while deleting user: " + e.getMessage());
             throw new RuntimeException("Error occurred while deleting user", e);
@@ -78,11 +93,25 @@ public class UsersService {
         return userRepository.existsByEmail(email);
     }
 
+    /**
+     * Updates the user's information with the given id, username, and password.
+     *
+     * @param id        The id of the user.
+     * @param userName  The new username.
+     * @param password  The new password.
+     */
     public void updateUser(Integer id, String userName, String password) {
         password = passwordEncoder.encode(password);
         userRepository.updateUser(id, userName, password);
     }
 
+    /**
+     * Checks if the account balance is sufficient for a withdrawal.
+     *
+     * @param accountBalance The current balance of the account.
+     * @param amount         The amount to withdraw.
+     * @throws NotAllowed If the account balance is less than the withdrawal amount.
+     */
     public void checkIfAccountCanBeWithdraw(Double accountBalance, Double amount) throws NotAllowed {
         if (accountBalance < amount) {
             throw new NotAllowed("Not enough money in your account");

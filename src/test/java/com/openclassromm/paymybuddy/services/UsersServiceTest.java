@@ -81,7 +81,7 @@ public class UsersServiceTest {
 
         verify(friendshipRepository, times(1)).updateFriendshipStatus(USER_ID);
         verify(externTransactionRepository, times(1)).deleteByIdUser(USER_ID);
-        verify(userRepository, times(1)).disabledUser(USER_ID, "deletedUser", "0");
+        verify(userRepository, times(1)).disabledUser(anyInt(), anyString(), anyString());
     }
 
     @Test

@@ -99,11 +99,4 @@ public class ViewController {
         model.addAttribute("title", "New extern transaction");
         return "externTransactions";
     }
-
-    @RequestMapping(path = "/updateUser")
-    public String updateUser(Model model) {
-        model.addAttribute("putUser", new PostUser());
-        model.addAttribute("title", "Update User");
-        return "updateUser";
-    }
 }
