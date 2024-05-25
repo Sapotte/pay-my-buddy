@@ -23,8 +23,8 @@
         </div>
         <div class="mb-4">
             <select aria-label="Transaction type" class="form-select" th:field="*{type}">
-                <option value="+">From bank account</option>
-                <option value="-">To bank account</option>
+                <option value="DEPOSIT">From bank account</option>
+                <option value="WITHDRAW">To bank account</option>
             </select>
         </div>
         <input class="btn btn-primary mb-4 center" type="submit" value="New transaction"/>

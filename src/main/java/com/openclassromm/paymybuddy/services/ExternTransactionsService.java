@@ -9,6 +9,7 @@ import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.mappers.ExternTransactionServiceMapperImpl;
 import com.openclassromm.paymybuddy.utils.Helpers;
+import com.openclassromm.paymybuddy.utils.TypeEnum;
 import jakarta.transaction.Transactional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,6 +37,7 @@ public class ExternTransactionsService {
     @Autowired
     Helpers helpers;
 
+
     private final ExternTransactionServiceMapperImpl mapper = new ExternTransactionServiceMapperImpl();
 
     /**
@@ -50,10 +52,10 @@ public class ExternTransactionsService {
         User user = userRepository.findById(userId).orElse(null);
         Double taxe = Helpers.round(postExternTransaction.getAmount() * 0.5 / 100);
         try {
-            if ('+' == postExternTransaction.getType()) {
+            if (TypeEnum.DEPOSIT.equals(postExternTransaction.getType())) {
                 userRepository.increaseAccountBalance(userId, postExternTransaction.getAmount());
                 LOGGER.info("Account balance increased");
-            } else if ('-' == postExternTransaction.getType()) {
+            } else if (TypeEnum.WITHDRAW.equals(postExternTransaction.getType())) {
                 userRepository.decreaseAccountBalance(userId, postExternTransaction.getAmount());
                 LOGGER.info("Account balance decreased");
             } else {
@@ -82,13 +84,14 @@ public class ExternTransactionsService {
         Page<ExternTransaction> externTransactionList = externTransactionRepository.findAllByIdUserOrderByIdDesc(user, pageable);
         return externTransactionList.map(it -> {
             ExternTransactionDto dto = new ExternTransactionDto();
-            if (it.getType() == '-') {
+            if (TypeEnum.WITHDRAW.toString().equals(it.getType())) {
                 dto.setAmount((it.getAmount() + it.getTaxe()));
-            } else {
+                dto.setType(TypeEnum.WITHDRAW.getCode());
+            } else if (TypeEnum.DEPOSIT.toString().equals(it.getType())) {
                 dto.setAmount(it.getAmount());
+                dto.setType(TypeEnum.DEPOSIT.getCode());
             }
             dto.setDate(LocalDate.parse(it.getDate().format(DateTimeFormatter.ISO_DATE)));
-            dto.setType(it.getType().toString());
             dto.setAccount(it.getAccount());
             return dto;
         });

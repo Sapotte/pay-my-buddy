@@ -8,13 +8,13 @@
     <h2 class="text-center color-success">Inscrivez-vous</h2>
     <form action="#" method="POST" th:action="@{/friendships}" th:object="${userEmail}">
         <div class="mb-4">
-            <label class="form-label" for="userEmail">Votre pseudo</label>
-            <input class="form-control" id="userEmail" name="userEmail" placeholder="Mail de votre ami" required
+            <label class="form-label" for="userEmail">Your nickname</label>
+            <input class="form-control" id="userEmail" name="userEmail" placeholder="Friend's email" required
                    type="text"/>
         </div>
-        <input class="btn btn-primary mb-4 center" type="submit" value="Ajouter un ami"/>
+        <input class="btn btn-primary mb-4 center" type="submit" value="Add a friend"/>
         <span class="error" th:if="${param.error}">
-            Une erreur est survenue, veuillez réessayer</span>
+            Invalid friend, check the email</span>
     </form>
 </div>
 </body>

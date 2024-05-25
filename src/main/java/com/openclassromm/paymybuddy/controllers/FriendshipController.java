@@ -44,7 +44,7 @@ public class FriendshipController {
             return "redirect:/account";
         } catch (Exception e) {
             LOGGER.error(e.getMessage());
-            return "redirect:/account?error";
+            return "redirect:/addFriend?error";
         }
     }
 

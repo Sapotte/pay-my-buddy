@@ -3,6 +3,7 @@ package com.openclassromm.paymybuddy.controllers;
 import com.openclassromm.paymybuddy.controllers.dto.PostExternTransaction;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
 import com.openclassromm.paymybuddy.services.ExternTransactionsService;
+import com.openclassromm.paymybuddy.utils.TypeEnum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,7 +38,7 @@ public class ExternTransactionsControllerTest {
         MockitoAnnotations.openMocks(this);
         postExternTransaction.setAccount("account");
         postExternTransaction.setAmount(22.2);
-        postExternTransaction.setType('+');
+        postExternTransaction.setType(TypeEnum.DEPOSIT);
         when(securityContext.getAuthentication()).thenReturn(authentication);
         SecurityContextHolder.setContext(securityContext);
     }

@@ -29,7 +29,7 @@ public class ExternTransaction {
 
     @NotNull
     @Column(name = "type", nullable = false)
-    private Character type;
+    private String type;
 
     @NotNull
     @Column(name = "amount", nullable = false)
@@ -68,11 +68,11 @@ public class ExternTransaction {
         this.date = date;
     }
 
-    public Character getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(Character type) {
+    public void setType(String type) {
         this.type = type;
     }
 

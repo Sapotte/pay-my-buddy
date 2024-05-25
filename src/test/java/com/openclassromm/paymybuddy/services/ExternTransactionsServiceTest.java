@@ -7,6 +7,7 @@ import com.openclassromm.paymybuddy.db.models.User;
 import com.openclassromm.paymybuddy.db.repositories.ExternTransactionRepository;
 import com.openclassromm.paymybuddy.db.repositories.UserRepository;
 import com.openclassromm.paymybuddy.errors.NotAllowed;
+import com.openclassromm.paymybuddy.utils.TypeEnum;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -57,7 +58,7 @@ public class ExternTransactionsServiceTest {
         PostExternTransaction postExternTransaction = new PostExternTransaction();
         postExternTransaction.setAccount("account");
         postExternTransaction.setAmount(100.0);
-        postExternTransaction.setType('+');
+        postExternTransaction.setType(TypeEnum.DEPOSIT);
         when(userRepository.findById(USER_ID)).thenReturn(Optional.of(mockUser));
 
         externTransactionsService.saveTransaction(USER_ID, postExternTransaction);
@@ -75,7 +76,7 @@ public class ExternTransactionsServiceTest {
         PostExternTransaction postExternTransaction = new PostExternTransaction();
         postExternTransaction.setAccount("account");
         postExternTransaction.setAmount(100.0);
-        postExternTransaction.setType('-');
+        postExternTransaction.setType(TypeEnum.WITHDRAW);
         when(userRepository.findById(USER_ID)).thenReturn(Optional.of(mockUser));
 
         externTransactionsService.saveTransaction(USER_ID, postExternTransaction);
@@ -93,7 +94,7 @@ public class ExternTransactionsServiceTest {
         PostExternTransaction postExternTransaction = new PostExternTransaction();
         postExternTransaction.setAccount("account");
         postExternTransaction.setAmount(100.0);
-        postExternTransaction.setType('-');
+        postExternTransaction.setType(TypeEnum.WITHDRAW);
         when(userRepository.findById(USER_ID)).thenReturn(Optional.of(mockUser));
 
         doThrow(new RuntimeException("Database error")).when(userRepository).decreaseAccountBalance(anyInt(), any());
@@ -110,7 +111,7 @@ public class ExternTransactionsServiceTest {
         User mockUser = new User();
         mockUser.setId(USER_ID);
         ExternTransaction externTransaction = new ExternTransaction();
-        externTransaction.setType('+');
+        externTransaction.setType(TypeEnum.DEPOSIT.toString());
         externTransaction.setAccount("account");
         externTransaction.setAmount(100.0);
         externTransaction.setDate(LocalDate.now());

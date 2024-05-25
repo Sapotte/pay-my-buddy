@@ -1,9 +1,11 @@
 package com.openclassromm.paymybuddy.controllers.dto;
 
+import com.openclassromm.paymybuddy.utils.TypeEnum;
+
 public class PostExternTransaction {
     private Double amount;
     private String account;
-    private Character type;
+    private TypeEnum type;
 
     public Double getAmount() {
         return amount;
@@ -21,11 +23,11 @@ public class PostExternTransaction {
         this.account = account;
     }
 
-    public Character getType() {
+    public TypeEnum getType() {
         return type;
     }
 
-    public void setType(Character type) {
+    public void setType(TypeEnum type) {
         this.type = type;
     }
 }
