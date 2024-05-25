@@ -10,7 +10,8 @@ MVC.
 
 ## Installation
 
-1. Set the database with the create.sql file in pay-my-buddy/resources or with the dataset.sql if you need a dataset as
+1. Set the database with the [create.sql](resources/create.sql) file in or with
+   the [dataset.sql](resources/dataset.sql) if you need a dataset as
    follows :
 
    | username | email           | password       |
@@ -27,8 +28,8 @@ MVC.
 
 ## UML
 
-![UML](./resources/UML.png)
+![UML](resources/UML.png)
 
 ## MLD
 
-![MLD](./resources/MLD.png)
+![MLD](resources/MLD.png)
